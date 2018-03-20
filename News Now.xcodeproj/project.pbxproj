@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		403F37E0205EC44B00C184B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F37DF205EC44B00C184B0 /* AppDelegate.swift */; };
-		403F37E2205EC44B00C184B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F37E1205EC44B00C184B0 /* ViewController.swift */; };
+		403F37E2205EC44B00C184B0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F37E1205EC44B00C184B0 /* LoginController.swift */; };
 		403F37E5205EC44B00C184B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E3205EC44B00C184B0 /* Main.storyboard */; };
 		403F37E7205EC44B00C184B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E6205EC44B00C184B0 /* Assets.xcassets */; };
 		403F37EA205EC44B00C184B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E8205EC44B00C184B0 /* LaunchScreen.storyboard */; };
-		403F37F2205EEC0E00C184B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 403F37F1205EEC0E00C184B0 /* GoogleService-Info.plist */; };
 		4049E032206102FD00FAEB37 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E031206102FD00FAEB37 /* Categories.swift */; };
+		4049E0382061784500FAEB37 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E0372061784500FAEB37 /* RegisterController.swift */; };
+		4049E03A2061786F00FAEB37 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4049E0392061786F00FAEB37 /* Default-568h@2x.png */; };
+		4049E03C2061789000FAEB37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4049E03B2061789000FAEB37 /* GoogleService-Info.plist */; };
 		4AAF2C0E0754ACA15FA7888A /* Pods_News_Now.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BAE121BDE202931CF701CB /* Pods_News_Now.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,13 +23,15 @@
 		1A457C12D3914F8EE77D7BB9 /* Pods-News Now.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News Now.release.xcconfig"; path = "Pods/Target Support Files/Pods-News Now/Pods-News Now.release.xcconfig"; sourceTree = "<group>"; };
 		403F37DC205EC44B00C184B0 /* News Now.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News Now.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		403F37DF205EC44B00C184B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		403F37E1205EC44B00C184B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		403F37E1205EC44B00C184B0 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		403F37E4205EC44B00C184B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		403F37E6205EC44B00C184B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		403F37E9205EC44B00C184B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		403F37EB205EC44B00C184B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		403F37F1205EEC0E00C184B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4049E031206102FD00FAEB37 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		4049E0372061784500FAEB37 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		4049E0392061786F00FAEB37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4049E03B2061789000FAEB37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1D209093EEA949DE79F6B24 /* Pods-News Now.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News Now.debug.xcconfig"; path = "Pods/Target Support Files/Pods-News Now/Pods-News Now.debug.xcconfig"; sourceTree = "<group>"; };
 		F0BAE121BDE202931CF701CB /* Pods_News_Now.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_Now.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -64,7 +68,10 @@
 		403F37D3205EC44B00C184B0 = {
 			isa = PBXGroup;
 			children = (
+				4049E0392061786F00FAEB37 /* Default-568h@2x.png */,
 				403F37DE205EC44B00C184B0 /* News Now */,
+				403F37EB205EC44B00C184B0 /* Info.plist */,
+				4049E03B2061789000FAEB37 /* GoogleService-Info.plist */,
 				403F37DD205EC44B00C184B0 /* Products */,
 				25754B6D20A8D0C6255C573E /* Pods */,
 				39DE79717BF54E66DC720EE2 /* Frameworks */,
@@ -83,15 +90,46 @@
 			isa = PBXGroup;
 			children = (
 				403F37DF205EC44B00C184B0 /* AppDelegate.swift */,
-				403F37E1205EC44B00C184B0 /* ViewController.swift */,
-				4049E031206102FD00FAEB37 /* Categories.swift */,
-				403F37E3205EC44B00C184B0 /* Main.storyboard */,
-				403F37E6205EC44B00C184B0 /* Assets.xcassets */,
-				403F37E8205EC44B00C184B0 /* LaunchScreen.storyboard */,
-				403F37EB205EC44B00C184B0 /* Info.plist */,
-				403F37F1205EEC0E00C184B0 /* GoogleService-Info.plist */,
+				4049E0342061728100FAEB37 /* Model */,
+				4049E0352061729700FAEB37 /* View */,
+				4049E0332061727500FAEB37 /* Controllers */,
+				4049E036206172A300FAEB37 /* Resources */,
 			);
 			path = "News Now";
+			sourceTree = "<group>";
+		};
+		4049E0332061727500FAEB37 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				403F37E1205EC44B00C184B0 /* LoginController.swift */,
+				4049E0372061784500FAEB37 /* RegisterController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4049E0342061728100FAEB37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4049E031206102FD00FAEB37 /* Categories.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4049E0352061729700FAEB37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				403F37E3205EC44B00C184B0 /* Main.storyboard */,
+				403F37E8205EC44B00C184B0 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4049E036206172A300FAEB37 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				403F37E6205EC44B00C184B0 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +195,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				403F37EA205EC44B00C184B0 /* LaunchScreen.storyboard in Resources */,
-				403F37F2205EEC0E00C184B0 /* GoogleService-Info.plist in Resources */,
 				403F37E7205EC44B00C184B0 /* Assets.xcassets in Resources */,
+				4049E03C2061789000FAEB37 /* GoogleService-Info.plist in Resources */,
+				4049E03A2061786F00FAEB37 /* Default-568h@2x.png in Resources */,
 				403F37E5205EC44B00C184B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,7 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				403F37E2205EC44B00C184B0 /* ViewController.swift in Sources */,
+				4049E0382061784500FAEB37 /* RegisterController.swift in Sources */,
+				403F37E2205EC44B00C184B0 /* LoginController.swift in Sources */,
 				403F37E0205EC44B00C184B0 /* AppDelegate.swift in Sources */,
 				4049E032206102FD00FAEB37 /* Categories.swift in Sources */,
 			);
@@ -384,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N4FDL334LZ;
-				INFOPLIST_FILE = "News Now/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Sarvad-Shetty.News-Now";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,7 +440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N4FDL334LZ;
-				INFOPLIST_FILE = "News Now/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Sarvad-Shetty.News-Now";
 				PRODUCT_NAME = "$(TARGET_NAME)";
