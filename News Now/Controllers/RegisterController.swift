@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
+import Firebase
 
 class RegisterController: UIViewController {
     
@@ -14,8 +16,17 @@ class RegisterController: UIViewController {
     var emailID:String?
     var passID:String?
 
+    //MARK:IBOutlets
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var regButton: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameTextField.borderStyle = .roundedRect
+        emailTextField.borderStyle = .roundedRect
+        passwordTextField.borderStyle = .roundedRect
 
     }
 
