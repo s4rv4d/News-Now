@@ -12,9 +12,13 @@
 		403F37E5205EC44B00C184B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E3205EC44B00C184B0 /* Main.storyboard */; };
 		403F37E7205EC44B00C184B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E6205EC44B00C184B0 /* Assets.xcassets */; };
 		403F37EA205EC44B00C184B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E8205EC44B00C184B0 /* LaunchScreen.storyboard */; };
+		403F37F2205EEC0E00C184B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 403F37F1205EEC0E00C184B0 /* GoogleService-Info.plist */; };
+		4049E032206102FD00FAEB37 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E031206102FD00FAEB37 /* Categories.swift */; };
+		4AAF2C0E0754ACA15FA7888A /* Pods_News_Now.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0BAE121BDE202931CF701CB /* Pods_News_Now.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A457C12D3914F8EE77D7BB9 /* Pods-News Now.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News Now.release.xcconfig"; path = "Pods/Target Support Files/Pods-News Now/Pods-News Now.release.xcconfig"; sourceTree = "<group>"; };
 		403F37DC205EC44B00C184B0 /* News Now.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News Now.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		403F37DF205EC44B00C184B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		403F37E1205EC44B00C184B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,10 @@
 		403F37E6205EC44B00C184B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		403F37E9205EC44B00C184B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		403F37EB205EC44B00C184B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		403F37F1205EEC0E00C184B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4049E031206102FD00FAEB37 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		B1D209093EEA949DE79F6B24 /* Pods-News Now.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-News Now.debug.xcconfig"; path = "Pods/Target Support Files/Pods-News Now/Pods-News Now.debug.xcconfig"; sourceTree = "<group>"; };
+		F0BAE121BDE202931CF701CB /* Pods_News_Now.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_News_Now.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AAF2C0E0754ACA15FA7888A /* Pods_News_Now.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25754B6D20A8D0C6255C573E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1D209093EEA949DE79F6B24 /* Pods-News Now.debug.xcconfig */,
+				1A457C12D3914F8EE77D7BB9 /* Pods-News Now.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		39DE79717BF54E66DC720EE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0BAE121BDE202931CF701CB /* Pods_News_Now.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		403F37D3205EC44B00C184B0 = {
 			isa = PBXGroup;
 			children = (
 				403F37DE205EC44B00C184B0 /* News Now */,
 				403F37DD205EC44B00C184B0 /* Products */,
+				25754B6D20A8D0C6255C573E /* Pods */,
+				39DE79717BF54E66DC720EE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,10 +84,12 @@
 			children = (
 				403F37DF205EC44B00C184B0 /* AppDelegate.swift */,
 				403F37E1205EC44B00C184B0 /* ViewController.swift */,
+				4049E031206102FD00FAEB37 /* Categories.swift */,
 				403F37E3205EC44B00C184B0 /* Main.storyboard */,
 				403F37E6205EC44B00C184B0 /* Assets.xcassets */,
 				403F37E8205EC44B00C184B0 /* LaunchScreen.storyboard */,
 				403F37EB205EC44B00C184B0 /* Info.plist */,
+				403F37F1205EEC0E00C184B0 /* GoogleService-Info.plist */,
 			);
 			path = "News Now";
 			sourceTree = "<group>";
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 403F37EE205EC44B00C184B0 /* Build configuration list for PBXNativeTarget "News Now" */;
 			buildPhases = (
+				0FAE73DE02C2374A360FB202 /* [CP] Check Pods Manifest.lock */,
 				403F37D8205EC44B00C184B0 /* Sources */,
 				403F37D9205EC44B00C184B0 /* Frameworks */,
 				403F37DA205EC44B00C184B0 /* Resources */,
+				4F204322BEC4409BF7FD6E36 /* [CP] Embed Pods Frameworks */,
+				1859883A04EE7848E43A51A4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,12 +157,85 @@
 			buildActionMask = 2147483647;
 			files = (
 				403F37EA205EC44B00C184B0 /* LaunchScreen.storyboard in Resources */,
+				403F37F2205EEC0E00C184B0 /* GoogleService-Info.plist in Resources */,
 				403F37E7205EC44B00C184B0 /* Assets.xcassets in Resources */,
 				403F37E5205EC44B00C184B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FAE73DE02C2374A360FB202 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-News Now-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1859883A04EE7848E43A51A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-News Now/Pods-News Now-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F204322BEC4409BF7FD6E36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-News Now/Pods-News Now-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Magnetic/Magnetic.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnetic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-News Now/Pods-News Now-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		403F37D8205EC44B00C184B0 /* Sources */ = {
@@ -138,6 +244,7 @@
 			files = (
 				403F37E2205EC44B00C184B0 /* ViewController.swift in Sources */,
 				403F37E0205EC44B00C184B0 /* AppDelegate.swift in Sources */,
+				4049E032206102FD00FAEB37 /* Categories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +379,7 @@
 		};
 		403F37EF205EC44B00C184B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1D209093EEA949DE79F6B24 /* Pods-News Now.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +395,7 @@
 		};
 		403F37F0205EC44B00C184B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A457C12D3914F8EE77D7BB9 /* Pods-News Now.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

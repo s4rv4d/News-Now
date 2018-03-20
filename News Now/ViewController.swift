@@ -7,17 +7,41 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
+    
+    let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+//        // Do any additional setup after loading the view, typically from a nib.
+//        let arr = ["kdjsk","sdsd","dsdsd"]
+//        let obj = Categories()
+//        obj.category =  arr
+//     //   obj.category = List(arr)
+//        do{
+//            try realm.write {
+//                realm.add(obj)
+//                print(Realm.Configuration.defaultConfiguration.fileURL)
+//            }
+//        }
+//        catch{
+//            print(error)
+//        }
+//     
+//        
+//        do{
+//            try realm.write {
+//                realm.delete(obj)
+//                print(Realm.Configuration.defaultConfiguration.fileURL)
+//            }
+//        }
+//        catch{
+//            print(error)
+//        }
+//
+//         print(obj.category.count)
     }
 
 
