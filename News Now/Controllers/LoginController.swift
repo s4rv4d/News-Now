@@ -101,6 +101,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         if let destinationVC = segue.destination as? RegisterController{
             destinationVC.emailID = emailTextField.text
             destinationVC.passID = passwordTextField.text
+           // destinationVC.emailTextField.text = emailTextField.text
+           // destinationVC.passwordTextField.text = passwordTextField.text
         }
     }
     
