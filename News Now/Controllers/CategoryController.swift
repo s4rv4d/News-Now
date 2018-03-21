@@ -20,14 +20,13 @@ class CategoryController: UIViewController, MagneticDelegate {
     let exampleColor = UIColor.black
     
 
+    //MARK:Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         magnetic?.magneticDelegate = self
         magnetic?.allowsMultipleSelection = true
         magnetic?.backgroundColor = .clear
-       // magnetic.backgroundColor = [UIColor colorWithWhite:myWhiteFloat alpha:myAlphaFloat];
     }
-
     override func loadView() {
         super.loadView()
         let magneticView = MagneticView(frame: CGRect(x: 0, y: 0, width: 375, height: 450))
@@ -36,30 +35,48 @@ class CategoryController: UIViewController, MagneticDelegate {
         self.view.addSubview(magneticView)
         view.bringSubview(toFront: magneticView)
         
-        let node = Node(text: "Italy", image: nil, color: .red, radius: 30)
-        magnetic?.addChild(node)
-        let node2 = Node(text: "france", image: nil, color: .red, radius: 30)
-        magnetic?.addChild(node2)
-        let node3 = Node(text: "india", image: nil, color: .red, radius: 30)
-        magnetic?.addChild(node3)
+        let tech = Node(text: "Technology", image: UIImage(named:"technology"), color: .orange, radius: 60)
+        magnetic?.addChild(tech)
+        let entertainment = Node(text: "Entertainent", image: UIImage(named:"music"), color: .cyan, radius: 70)
+        magnetic?.addChild(entertainment)
+        let sport = Node(text: "Sports", image: UIImage(named:"sports"), color: .green, radius: 50)
+        magnetic?.addChild(sport)
+        let worlds = Node(text: "World", image: UIImage(named:"world"), color: .blue, radius: 60)
+        magnetic?.addChild(worlds)
+        
         
     }
     
+    //MARK:Magnetic function
     func magnetic(_ magnetic: Magnetic, didSelect node: Node) {
         showChild()
     }
-    
     func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
-        print("bye")
         showChild()
     }
+    
+    //MARK:Random functions
     func showChild(){
         guard let num = magnetic?.selectedChildren.count else{return}
         categories = []
         for i in 0..<num{
             categories.append((magnetic?.selectedChildren[i].label.text!)!)
         }
-        print(categories)
+    }
+    
+    //MARK:IBActions
+    @IBAction func doneTapped(_ sender: UIButton) {
+        let location = Database.database().reference().child("categories").child(userUID!)
+        location.setValue(categories)
+        performSegue(withIdentifier: "goToNewsFeed2", sender: nil)
+    }
+    
+    //MARK:Segue functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? NewsFeedController{
+            destinationVC.userCategories = categories
+            destinationVC.userUID = userUID
+        }
     }
     
 

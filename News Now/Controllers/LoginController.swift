@@ -39,9 +39,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     }
     override func viewDidAppear(_ animated: Bool) {
-        if let _ = KeychainWrapper.standard.string(forKey: "uid"){
-            performSegue(withIdentifier: "goToNewsFeed", sender: nil)
-        }
+//        if let _ = KeychainWrapper.standard.string(forKey: "uid"){
+//            performSegue(withIdentifier: "goToNewsFeed", sender: nil)
+//        }
     }
     
     //MARK:Random functions

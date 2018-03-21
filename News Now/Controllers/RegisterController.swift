@@ -36,10 +36,23 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         passwordTextField.borderStyle = .roundedRect
         emailTextField.text = emailID
         passwordTextField.text = passID
+        imageVW.contentMode = .scaleAspectFill
         condition()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         observeNotification()
+        
+        //MARK:Constrains
+        imageVW.layer.cornerRadius = imageVW.frame.size.height / 2
+        imageVW.layer.masksToBounds = true
+        imageVW.clipsToBounds = true
+        imageVW.layer.borderWidth = 6
+        imageVW.layer.borderColor = UIColor.lightGray.cgColor
+        imageButton.layer.cornerRadius = imageButton.frame.size.height / 2
+        imageButton.layer.masksToBounds = true
+        imageButton.clipsToBounds = true
+        imageButton.layer.borderWidth = 6
+        imageButton.layer.borderColor = UIColor.lightGray.cgColor
 
     }
     
@@ -88,7 +101,7 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
     func setUser(url:String){
         let userData = ["username":usernameTextField.text!,"imageurl":url]
         KeychainWrapper.standard.set(self.userUID!, forKey: "uid")
-        let location = Database.database().reference().child(userUID!)
+        let location = Database.database().reference().child("users").child(userUID!)
         location.setValue(userData)
         performSegue(withIdentifier: "goToCategory", sender: nil)
         
@@ -99,8 +112,9 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     @objc func keyboardShow(){
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.view.frame = CGRect(x: 0, y: -120, width: self.view.frame.width, height: self.view.frame.height)
+            self.view.frame = CGRect(x: 0, y: -200, width: self.view.frame.width, height: self.view.frame.height)
         }, completion: nil)
+        
     }
     @objc func keyboardHide(){
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
