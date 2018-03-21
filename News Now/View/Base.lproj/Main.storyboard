@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g6M-ok-wRf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -137,6 +137,36 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TZg-Md-nr8">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSG-5d-N2b">
+                                            <rect key="frame" x="25" y="586" width="324" height="50"/>
+                                            <color key="backgroundColor" red="0.0070848632600000001" green="0.1245407239" blue="0.2903544307" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="MgV-27-4Gu"/>
+                                                <constraint firstAttribute="width" constant="324" id="doQ-pw-yUS"/>
+                                                <constraint firstAttribute="height" constant="50" id="htD-G3-8xQ"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="324" id="p8b-HN-7KG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="30"/>
+                                            <state key="normal" title="Done">
+                                                <color key="titleColor" red="0.99215686270000003" green="0.70588235290000001" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="23"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="registerUser:" destination="7Zi-BV-x9c" eventType="touchUpInside" id="8Uo-C1-3p1"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="oSG-5d-N2b" secondAttribute="bottom" constant="31" id="Qiz-2W-fkQ"/>
+                                        <constraint firstItem="oSG-5d-N2b" firstAttribute="centerX" secondItem="TZg-Md-nr8" secondAttribute="centerX" id="ZhV-o4-U7c"/>
+                                        <constraint firstAttribute="trailing" secondItem="oSG-5d-N2b" secondAttribute="trailing" constant="26" id="qwL-MS-3It"/>
+                                        <constraint firstItem="oSG-5d-N2b" firstAttribute="leading" secondItem="TZg-Md-nr8" secondAttribute="leading" constant="25" id="vF3-Sp-xyL"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>

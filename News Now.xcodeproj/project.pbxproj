@@ -14,7 +14,6 @@
 		403F37EA205EC44B00C184B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E8205EC44B00C184B0 /* LaunchScreen.storyboard */; };
 		4049E032206102FD00FAEB37 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E031206102FD00FAEB37 /* Categories.swift */; };
 		4049E0382061784500FAEB37 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E0372061784500FAEB37 /* RegisterController.swift */; };
-		4049E03A2061786F00FAEB37 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4049E0392061786F00FAEB37 /* Default-568h@2x.png */; };
 		4049E03C2061789000FAEB37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4049E03B2061789000FAEB37 /* GoogleService-Info.plist */; };
 		4049E03E20617D1900FAEB37 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E03D20617D1900FAEB37 /* CategoryController.swift */; };
 		4049E04020617D5000FAEB37 /* NewsFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E03F20617D5000FAEB37 /* NewsFeedController.swift */; };
@@ -32,7 +31,6 @@
 		403F37EB205EC44B00C184B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4049E031206102FD00FAEB37 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		4049E0372061784500FAEB37 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
-		4049E0392061786F00FAEB37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4049E03B2061789000FAEB37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4049E03D20617D1900FAEB37 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
 		4049E03F20617D5000FAEB37 /* NewsFeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedController.swift; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 		403F37D3205EC44B00C184B0 = {
 			isa = PBXGroup;
 			children = (
-				4049E0392061786F00FAEB37 /* Default-568h@2x.png */,
 				403F37DE205EC44B00C184B0 /* News Now */,
 				403F37EB205EC44B00C184B0 /* Info.plist */,
 				4049E03B2061789000FAEB37 /* GoogleService-Info.plist */,
@@ -203,7 +200,6 @@
 				403F37EA205EC44B00C184B0 /* LaunchScreen.storyboard in Resources */,
 				403F37E7205EC44B00C184B0 /* Assets.xcassets in Resources */,
 				4049E03C2061789000FAEB37 /* GoogleService-Info.plist in Resources */,
-				4049E03A2061786F00FAEB37 /* Default-568h@2x.png in Resources */,
 				403F37E5205EC44B00C184B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
