@@ -53,6 +53,11 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         imageButton.clipsToBounds = true
         imageButton.layer.borderWidth = 6
         imageButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        //MARK:Keyboard appearance
+        emailTextField.keyboardAppearance = .dark
+        passwordTextField.keyboardAppearance = .dark
+        usernameTextField.keyboardAppearance = .dark
 
     }
     

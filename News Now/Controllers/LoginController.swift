@@ -36,6 +36,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         emailTextFAnchor()
         passwordTextFAnchor()
         observeNotification()
+        emailTextField.keyboardAppearance = .dark
+        passwordTextField.keyboardAppearance = .dark
 
     }
     override func viewDidAppear(_ animated: Bool) {
