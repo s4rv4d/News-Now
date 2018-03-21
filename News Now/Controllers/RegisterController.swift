@@ -12,7 +12,7 @@ import Firebase
 import FirebaseStorage
 import FirebaseDatabase
 
-class RegisterController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RegisterController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate {
     
     //MARK:Variables
     var emailID:String?
@@ -39,6 +39,7 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         condition()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
+        observeNotification()
 
     }
     
@@ -91,6 +92,27 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         location.setValue(userData)
         performSegue(withIdentifier: "goToCategory", sender: nil)
         
+    }
+    func observeNotification(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    @objc func keyboardShow(){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.frame = CGRect(x: 0, y: -120, width: self.view.frame.width, height: self.view.frame.height)
+        }, completion: nil)
+    }
+    @objc func keyboardHide(){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        }, completion: nil)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     //MARK:IBActions
