@@ -96,6 +96,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    @IBAction func goToRegister(_ sender: UIButton) {
+        //nothing for now
+    }
     
     //MARK:Segue functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

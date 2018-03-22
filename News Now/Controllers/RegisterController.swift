@@ -161,6 +161,9 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
             self.uploadImg()
         }
     }
+    @IBAction func goBack(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     //MARK:Segue methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
