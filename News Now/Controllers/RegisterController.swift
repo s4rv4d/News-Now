@@ -103,6 +103,7 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
             })
         }
     }
+    
     func setUser(url:String){
         let userData = ["username":usernameTextField.text!,"imageurl":url]
         KeychainWrapper.standard.set(self.userUID!, forKey: "uid")
