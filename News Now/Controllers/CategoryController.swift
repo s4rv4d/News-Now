@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import Magnetic
+import RealmSwift
 
 class CategoryController: UIViewController, MagneticDelegate {
     
@@ -18,6 +19,8 @@ class CategoryController: UIViewController, MagneticDelegate {
     var categories:[String] = []
     var magnetic:Magnetic?
     let exampleColor = UIColor.black
+    let obj = Categories()
+    let realm = try? Realm()
     
 
     //MARK:Override functions
@@ -68,6 +71,14 @@ class CategoryController: UIViewController, MagneticDelegate {
     @IBAction func doneTapped(_ sender: UIButton) {
         let location = Database.database().reference().child("categories").child(userUID!)
         location.setValue(categories)
+                obj.category = categories
+                do{
+                    try realm?.write {
+                        realm?.add(obj)
+                    }
+                }catch{
+                }
+        
         performSegue(withIdentifier: "goToNewsFeed2", sender: nil)
     }
     

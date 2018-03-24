@@ -9,6 +9,9 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import RealmSwift
+import Firebase
+import SwiftKeychainWrapper
 
 class NewsFeedController: UIViewController {
     
@@ -18,21 +21,51 @@ class NewsFeedController: UIViewController {
     var newsFeed:[NewsFeed] = []
     var parameters:[String:String]!
     let url = newsURL()
+    let obj = Categories()
+    let realm = try? Realm()
+    var cat : Results<Categories>?
     
+    
+    //MARK:Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userCategories)
-         parameters = ["sources":"ign","apiKey":url.apiKEY]
-        start()
+        //parameters = ["sources":"ign","apiKey":url.apiKEY]
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
+       
     }
-
-    func start(){
-        Alamofire.request(url.url, method: .get, parameters: parameters).responseJSON { (response) in
-            if response.result.isSuccess{
-                let json:JSON = JSON(response.result.value!)
-                print(json)
+    override func viewDidAppear(_ animated: Bool) {
+         load()
+    }
+    
+    
+    //MARK:Random functions
+    func load(){
+        userCategories = []
+        for ca in (realm?.objects(Categories.self))!{
+            userCategories = ca.category
+        }
+        print("user is" + "\(userCategories)")
+    }
+    
+    //MARK:IBActions
+    @IBAction func signOut(_ sender: UIButton) {
+        do{
+            try Auth.auth().signOut()
+            KeychainWrapper.standard.removeObject(forKey: "uid")
+            for ca in (realm?.objects(Categories.self))!{
+                do{
+                    try realm?.write {
+                        realm?.delete(ca)
+                    }
+                }catch{
+                    
+                }
             }
+            dismiss(animated: true, completion: nil)
+        }catch{
+            
         }
     }
-
+    
 }
+

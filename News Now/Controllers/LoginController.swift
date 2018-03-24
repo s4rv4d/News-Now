@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import SwiftKeychainWrapper
 import Firebase
+import FirebaseDatabase
 
 class LoginController: UIViewController, UITextFieldDelegate {
     
@@ -20,6 +21,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     //MARK:Variables
     var userUID:String?
+    var arr:[String] = []
+    let obj = Categories()
     
     //MARK:Private functions
     private func observeNotification(){
@@ -41,10 +44,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     }
     override func viewDidAppear(_ animated: Bool) {
-//        if let _ = KeychainWrapper.standard.string(forKey: "uid"){
-//            performSegue(withIdentifier: "goToNewsFeed", sender: nil)
-//        }
+        if let _ = KeychainWrapper.standard.string(forKey: "uid"){
+            performSegue(withIdentifier: "goToNewsFeed", sender: nil)
+     }
     }
+
     
     //MARK:Random functions
     func emailTextFAnchor(){
@@ -88,8 +92,32 @@ class LoginController: UIViewController, UITextFieldDelegate {
             if error == nil{
                 self.userUID = user?.uid
                 KeychainWrapper.standard.set(self.userUID!, forKey: "uid")
-                self.performSegue(withIdentifier: "goToNewsFeed", sender: nil)
-                self.loginInButton.isEnabled = true
+                // * for next login
+                DispatchQueue.main.async {
+                    Database.database().reference().child("categories").child(self.userUID!).observe(.value, with: { (snapshot) in
+                        if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
+                            //print(snapshot)
+                            self.arr = []
+                            for data in snapshot{
+                                self.arr.append(data.value! as! String)
+                            }
+                            print("its is" + "\(self.arr)")
+                            self.obj.category = self.arr
+                            do{
+                                try self.realm.write {
+                                    self.realm.add(self.obj)
+                                    self.performSegue(withIdentifier: "goToNewsFeed", sender: nil)
+                                    self.loginInButton.isEnabled = true
+                                }
+                            }catch{
+                            }
+                            
+                        }
+                    })
+                }
+                
+                //*
+               
             }else{
                 self.performSegue(withIdentifier: "goToRegister", sender: nil)
                 self.loginInButton.isEnabled = true
@@ -99,6 +127,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBAction func goToRegister(_ sender: UIButton) {
         //nothing for now
     }
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
+        
+    }
     
     //MARK:Segue functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,37 +137,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
         if let destinationVC = segue.destination as? RegisterController{
             destinationVC.emailID = emailTextField.text
             destinationVC.passID = passwordTextField.text
-           // destinationVC.emailTextField.text = emailTextField.text
-           // destinationVC.passwordTextField.text = passwordTextField.text
+        }else if let destinationVc2 = segue.destination as? NewsFeedController{
+            //destinationVc2.
         }
     }
     
 }
-//        // Do any additional setup after loading the view, typically from a nib.
-//        let arr = ["kdjsk","sdsd","dsdsd"]
-//        let obj = Categories()
-//        obj.category =  arr
-//     //   obj.category = List(arr)
-//        do{
-//            try realm.write {
-//                realm.add(obj)
-//                print(Realm.Configuration.defaultConfiguration.fileURL)
-//            }
-//        }
-//        catch{
-//            print(error)
-//        }
-//
-//
-//        do{
-//            try realm.write {
-//                realm.delete(obj)
-//                print(Realm.Configuration.defaultConfiguration.fileURL)
-//            }
-//        }
-//        catch{
-//            print(error)
-//        }
-//
-//         print(obj.category.count)
 

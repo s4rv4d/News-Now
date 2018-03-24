@@ -157,9 +157,10 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
             }else{
                 if let user = user{
                     self.userUID = user.uid
+                     self.uploadImg()
                 }
             }
-            self.uploadImg()
+           
         }
     }
     @IBAction func goBack(_ sender: UIButton) {

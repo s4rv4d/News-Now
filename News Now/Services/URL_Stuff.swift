@@ -13,3 +13,10 @@ class newsURL{
     let apiKEY:String = "e0dbe7dd667541e4932545dfdf26ac3f"
     
 }
+
+class subCategories{
+    
+    static let shared:subCategories = subCategories()
+    
+    let sub:[String:[String]] = ["Technology":["ign","engadget"],"Entertainent":["mtv-news","mtv-news-uk"],"Sports":["nfl-news","espn-cric-info"],"World":["abc-news","cnn"]]
+}
