@@ -13,7 +13,7 @@ struct NewsFeed {
     
     var title:String
     var data:String
-    var imgURL:String
+    var imgURL:URL
     var nwURL:String
     var source:String
     

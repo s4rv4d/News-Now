@@ -12,8 +12,9 @@ import SwiftyJSON
 import RealmSwift
 import Firebase
 import SwiftKeychainWrapper
+import SDWebImage
 
-class NewsFeedController: UIViewController {
+class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     //MARK:Variables
     var userCategories:[String] = []
@@ -26,6 +27,9 @@ class NewsFeedController: UIViewController {
     let realm = try? Realm()
     var cat : [String] = []
     
+    //MARK:IBOutlets
+    @IBOutlet weak var collectionVW: UICollectionView!
+    
     
     //MARK:Override functions
     override func viewDidLoad() {
@@ -35,11 +39,6 @@ class NewsFeedController: UIViewController {
         getData()
        
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-       
-    }
-
     
     
     //MARK:Random functions
@@ -73,11 +72,12 @@ class NewsFeedController: UIViewController {
     func updateDATA(json:JSON){
         let title = json["articles"][0]["title"].stringValue
         let data = json["articles"][0]["description"].stringValue
-        let imgurl = json["articles"][0]["urlToImage"].stringValue
+        let imgurl = json["articles"][0]["urlToImage"].url
         let nwurl = json["articles"][0]["url"].stringValue
         let source = json["articles"][0]["source"]["name"].stringValue
-        let nwfeed = NewsFeed(title: title, data: data, imgURL: imgurl, nwURL: nwurl, source: source)
+        let nwfeed = NewsFeed(title: title, data: data, imgURL: imgurl!, nwURL: nwurl, source: source)
         self.newsFeed.append(nwfeed)
+        collectionVW.reloadData()
         
     }
     
@@ -101,7 +101,21 @@ class NewsFeedController: UIViewController {
         }
     }
     
-    
-    
+    //MARK:Collection view methods
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return newsFeed.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsFeedCollectionViewCell
+        cell.imageVw.sd_setImage(with:newsFeed[indexPath.item].imgURL, completed: nil)
+        cell.details.text = newsFeed[indexPath.item].data
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //do nothing for now
+    }
 }
 
