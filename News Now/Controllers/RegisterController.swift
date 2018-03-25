@@ -131,7 +131,15 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.view.endEditing(true)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == emailTextField{
+            passwordTextField.becomeFirstResponder()
+        }
+        else if textField == passwordTextField{
+            usernameTextField.becomeFirstResponder()
+        }else{
+            textField.resignFirstResponder()
+        }
+        
         return true
     }
     
@@ -151,7 +159,7 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         present(alert, animated: true, completion: nil)
     }
     @IBAction func registerUser(_ sender: UIButton) {
-        Auth.auth().createUser(withEmail: emailID!, password: passID!) { (user, error) in
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil{
                 print("user can't be created")
             }else{

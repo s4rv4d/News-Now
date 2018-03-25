@@ -9,10 +9,13 @@
 import Foundation
 
 
-struct NewsFeed{
+struct NewsFeed {
     
     var title:String
     var data:String
     var imgURL:String
+    var nwURL:String
+    var source:String
     
 }
+

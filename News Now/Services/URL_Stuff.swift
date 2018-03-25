@@ -20,3 +20,4 @@ class subCategories{
     
     let sub:[String:[String]] = ["Technology":["ign","engadget"],"Entertainent":["mtv-news","mtv-news-uk"],"Sports":["nfl-news","espn-cric-info"],"World":["abc-news","cnn"]]
 }
+

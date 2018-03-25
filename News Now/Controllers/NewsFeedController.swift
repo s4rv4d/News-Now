@@ -19,32 +19,66 @@ class NewsFeedController: UIViewController {
     var userCategories:[String] = []
     var userUID:String!
     var newsFeed:[NewsFeed] = []
+    var newsFeed2:[NewsFeed] = []
     var parameters:[String:String]!
     let url = newsURL()
     let obj = Categories()
     let realm = try? Realm()
-    var cat : Results<Categories>?
+    var cat : [String] = []
     
     
     //MARK:Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        //parameters = ["sources":"ign","apiKey":url.apiKEY]
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
+        load()
+        getCat()
+        getData()
        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
-         load()
+       
     }
+
     
     
     //MARK:Random functions
     func load(){
         userCategories = []
         for ca in (realm?.objects(Categories.self))!{
-            userCategories = ca.category
+            userCategories = ca.category        }
+        print(userCategories)
+    }
+    func getCat(){
+        for data in userCategories{
+            for data2 in subCategories.shared.sub[data]!{
+                cat.append(data2)
+            }
         }
-        print("user is" + "\(userCategories)")
+    }
+    func getData(){
+        newsFeed = []
+        for ca in cat{
+            parameters = ["sources":ca,"apiKey":url.apiKEY]
+            Alamofire.request(url.url, method: .get, parameters: parameters ).responseJSON(completionHandler: { (response) in
+                if response.result.isSuccess{
+                    let jsonVal:JSON = JSON(response.result.value!)
+                    print(jsonVal)
+                    self.updateDATA(json: jsonVal)
+                    
+                }
+            })
+        }
+    }
+    func updateDATA(json:JSON){
+        let title = json["articles"][0]["title"].stringValue
+        let data = json["articles"][0]["description"].stringValue
+        let imgurl = json["articles"][0]["urlToImage"].stringValue
+        let nwurl = json["articles"][0]["url"].stringValue
+        let source = json["articles"][0]["source"]["name"].stringValue
+        let nwfeed = NewsFeed(title: title, data: data, imgURL: imgurl, nwURL: nwurl, source: source)
+        self.newsFeed.append(nwfeed)
+        
     }
     
     //MARK:IBActions
@@ -66,6 +100,8 @@ class NewsFeedController: UIViewController {
             
         }
     }
+    
+    
     
 }
 
