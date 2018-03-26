@@ -51,7 +51,6 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     //MARK:Random functions
     @objc func handleSwipe(_ sender:UISwipeGestureRecognizer){
         if sender.direction == .up{
-            print("up")
             let layout:UICollectionViewFlowLayout = {
                 let lay = UICollectionViewFlowLayout()
                 lay.scrollDirection = .horizontal
@@ -69,7 +68,6 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
         else if sender.direction == .down{
-            print("down")
             let layout1:UICollectionViewFlowLayout = {
                 let lay = UICollectionViewFlowLayout()
                 lay.scrollDirection = .horizontal
@@ -90,7 +88,6 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         userCategories = []
         for ca in (realm?.objects(Categories.self))!{
             userCategories = ca.category        }
-        print(userCategories)
     }
     func getCat(){
         for data in userCategories{
@@ -106,7 +103,6 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             Alamofire.request(url.url, method: .get, parameters: parameters ).responseJSON(completionHandler: { (response) in
                 if response.result.isSuccess{
                     let jsonVal:JSON = JSON(response.result.value!)
-                    print(jsonVal)
                     self.updateDATA(json: jsonVal)
                     
                 }

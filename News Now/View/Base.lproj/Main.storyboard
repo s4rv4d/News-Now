@@ -435,13 +435,13 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TyG-WH-58W">
-                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="224"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="258"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="224" id="xVJ-bK-keA"/>
+                                                                    <constraint firstAttribute="height" constant="258" id="xVJ-bK-keA"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50E-Uu-vOC">
-                                                                <rect key="frame" x="0.0" y="225" width="335" height="275"/>
+                                                                <rect key="frame" x="0.0" y="256" width="335" height="244"/>
                                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment>
@@ -461,7 +461,7 @@
                                                         <constraint firstAttribute="bottom" secondItem="50E-Uu-vOC" secondAttribute="bottom" id="J8u-6k-ndn"/>
                                                         <constraint firstItem="TyG-WH-58W" firstAttribute="top" secondItem="c71-Bo-PH3" secondAttribute="top" id="ejP-Qp-oA9"/>
                                                         <constraint firstItem="50E-Uu-vOC" firstAttribute="leading" secondItem="c71-Bo-PH3" secondAttribute="leading" id="gwQ-ZM-Knz"/>
-                                                        <constraint firstItem="50E-Uu-vOC" firstAttribute="top" secondItem="TyG-WH-58W" secondAttribute="bottom" constant="1" id="huJ-lQ-jH8"/>
+                                                        <constraint firstItem="50E-Uu-vOC" firstAttribute="top" secondItem="TyG-WH-58W" secondAttribute="bottom" constant="-2" id="huJ-lQ-jH8"/>
                                                         <constraint firstAttribute="trailing" secondItem="TyG-WH-58W" secondAttribute="trailing" id="ii7-qM-WZM"/>
                                                         <constraint firstItem="TyG-WH-58W" firstAttribute="leading" secondItem="c71-Bo-PH3" secondAttribute="leading" id="jK2-x7-2Su"/>
                                                     </constraints>
