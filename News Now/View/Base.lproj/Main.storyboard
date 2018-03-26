@@ -385,26 +385,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdf-Qc-uhm">
-                                            <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                            <color key="backgroundColor" red="0.0" green="0.3411764706" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <items>
-                                                <tabBarItem title="Feed" id="RWF-DF-g50"/>
-                                                <tabBarItem title="Profile" id="TCd-Lg-kUS">
-                                                    <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </tabBarItem>
-                                            </items>
-                                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="barTintColor" red="0.0" green="0.3411764706" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="8JU-X1-XeS" id="zPq-Bq-8Di"/>
-                                            </connections>
-                                        </tabBar>
                                         <view alpha="0.80000000000000004" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdv-WA-TqQ">
-                                            <rect key="frame" x="0.0" y="-39" width="375" height="115"/>
+                                            <rect key="frame" x="0.0" y="-33" width="375" height="109"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Loc-IR-Y5b">
-                                                    <rect key="frame" x="8" y="71" width="59" height="15"/>
+                                                    <rect key="frame" x="8" y="53" width="59" height="33"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                                     <state key="normal" title="Sign out">
                                                         <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -415,7 +400,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Feed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6q-zS-2ac">
-                                                    <rect key="frame" x="122" y="70" width="127.5" height="19"/>
+                                                    <rect key="frame" x="122" y="60" width="128" height="29"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -423,13 +408,13 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.0070848632600000001" green="0.1245407239" blue="0.2903544307" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Loc-IR-Y5b" secondAttribute="bottom" constant="29" id="15F-WM-t7S"/>
-                                                <constraint firstItem="Loc-IR-Y5b" firstAttribute="leading" secondItem="tdv-WA-TqQ" secondAttribute="leading" constant="8" id="3GH-AK-LhG"/>
-                                                <constraint firstItem="B6q-zS-2ac" firstAttribute="top" secondItem="tdv-WA-TqQ" secondAttribute="top" constant="70" id="3pS-sl-ymf"/>
+                                                <constraint firstAttribute="height" constant="109" id="9LY-bx-Alp"/>
                                                 <constraint firstItem="B6q-zS-2ac" firstAttribute="leading" secondItem="Loc-IR-Y5b" secondAttribute="trailing" constant="55" id="BVv-vO-eJw"/>
-                                                <constraint firstItem="Loc-IR-Y5b" firstAttribute="top" secondItem="tdv-WA-TqQ" secondAttribute="top" constant="71" id="MvZ-KN-4KP"/>
-                                                <constraint firstAttribute="bottom" secondItem="B6q-zS-2ac" secondAttribute="bottom" constant="26" id="QkX-qo-KXI"/>
-                                                <constraint firstAttribute="height" constant="115" id="Wno-XN-tmH"/>
+                                                <constraint firstAttribute="bottom" secondItem="B6q-zS-2ac" secondAttribute="bottom" constant="20" id="fdg-0z-Y0w"/>
+                                                <constraint firstItem="B6q-zS-2ac" firstAttribute="leading" secondItem="Loc-IR-Y5b" secondAttribute="trailing" constant="55" id="ijr-Gb-3dP"/>
+                                                <constraint firstItem="Loc-IR-Y5b" firstAttribute="leading" secondItem="tdv-WA-TqQ" secondAttribute="leading" constant="8" id="jBE-nB-Gmj"/>
+                                                <constraint firstAttribute="trailing" secondItem="B6q-zS-2ac" secondAttribute="trailing" constant="125" id="lsI-wh-RBF"/>
+                                                <constraint firstAttribute="bottom" secondItem="Loc-IR-Y5b" secondAttribute="bottom" constant="23" id="wi1-69-Q0Y"/>
                                             </constraints>
                                         </view>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ny1-cX-dov">
@@ -493,16 +478,13 @@
                                         </collectionView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="tdv-WA-TqQ" firstAttribute="top" secondItem="Wh0-G7-GDL" secondAttribute="top" constant="-39" id="2lE-qL-mvv"/>
-                                        <constraint firstItem="zdf-Qc-uhm" firstAttribute="top" secondItem="Ny1-cX-dov" secondAttribute="bottom" id="4LZ-nM-2pK"/>
                                         <constraint firstItem="Ny1-cX-dov" firstAttribute="top" secondItem="Wh0-G7-GDL" secondAttribute="top" constant="73" id="8S7-0a-Ko7"/>
-                                        <constraint firstItem="tdv-WA-TqQ" firstAttribute="leading" secondItem="Wh0-G7-GDL" secondAttribute="leading" id="ErM-dD-Kt5"/>
                                         <constraint firstItem="Ny1-cX-dov" firstAttribute="leading" secondItem="Wh0-G7-GDL" secondAttribute="leading" id="NQd-Sg-WEM"/>
-                                        <constraint firstItem="zdf-Qc-uhm" firstAttribute="leading" secondItem="Wh0-G7-GDL" secondAttribute="leading" id="OEg-hJ-RkF"/>
-                                        <constraint firstAttribute="trailing" secondItem="zdf-Qc-uhm" secondAttribute="trailing" id="Od8-fa-SEX"/>
-                                        <constraint firstAttribute="bottom" secondItem="zdf-Qc-uhm" secondAttribute="bottom" id="aIb-YH-czP"/>
                                         <constraint firstAttribute="trailing" secondItem="Ny1-cX-dov" secondAttribute="trailing" id="atL-ys-8dv"/>
-                                        <constraint firstAttribute="trailing" secondItem="tdv-WA-TqQ" secondAttribute="trailing" id="uim-df-Qtk"/>
+                                        <constraint firstItem="tdv-WA-TqQ" firstAttribute="leading" secondItem="Wh0-G7-GDL" secondAttribute="leading" id="eYy-Wc-N25"/>
+                                        <constraint firstAttribute="trailing" secondItem="tdv-WA-TqQ" secondAttribute="trailing" id="fVr-Uy-vZJ"/>
+                                        <constraint firstItem="tdv-WA-TqQ" firstAttribute="top" secondItem="Wh0-G7-GDL" secondAttribute="top" constant="-33" id="s60-Al-4OA"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ny1-cX-dov" secondAttribute="bottom" constant="49" id="wxP-yr-G08"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>
@@ -522,7 +504,8 @@
                         <viewLayoutGuide key="safeArea" id="h0P-Ge-pF9"/>
                     </view>
                     <connections>
-                        <outlet property="collectionVW" destination="Ny1-cX-dov" id="66G-0T-reB"/>
+                        <outlet property="collectionVW" destination="Ny1-cX-dov" id="G3x-YL-3J5"/>
+                        <outlet property="topConstraint" destination="s60-Al-4OA" id="dc7-CL-zcG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ic-Wj-RfS" userLabel="First Responder" sceneMemberID="firstResponder"/>

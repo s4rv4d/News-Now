@@ -29,6 +29,8 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //MARK:IBOutlets
     @IBOutlet weak var collectionVW: UICollectionView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+   
     
     
     //MARK:Override functions
@@ -37,11 +39,53 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         load()
         getCat()
         getData()
-       
+        let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(NewsFeedController.handleSwipe(_:)))
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(NewsFeedController.handleSwipe(_:)))
+        upSwipe.direction = .up
+        downSwipe.direction = .down
+        view.addGestureRecognizer(upSwipe)
+        view.addGestureRecognizer(downSwipe)
     }
     
     
     //MARK:Random functions
+    @objc func handleSwipe(_ sender:UISwipeGestureRecognizer){
+        if sender.direction == .up{
+            print("up")
+            let layout:UICollectionViewFlowLayout = {
+                let lay = UICollectionViewFlowLayout()
+                lay.scrollDirection = .horizontal
+                lay.sectionInset = UIEdgeInsetsMake(10, 20, 0, 20)
+                lay.itemSize = CGSize(width: 335, height: 600)
+                return lay
+            }()
+            if topConstraint.constant == -33{
+            UIView.animate(withDuration: 0.2, animations: {
+                self.topConstraint.constant += -100
+                
+                self.collectionVW.setCollectionViewLayout(layout, animated: true)
+                self.view.layoutIfNeeded()
+            })
+            }
+        }
+        else if sender.direction == .down{
+            print("down")
+            let layout1:UICollectionViewFlowLayout = {
+                let lay = UICollectionViewFlowLayout()
+                lay.scrollDirection = .horizontal
+                lay.sectionInset = UIEdgeInsetsMake(20, 20, 0, 20)
+                lay.itemSize = CGSize(width: 335, height: 500)
+                return lay
+            }()
+            UIView.animate(withDuration: 0.2, animations: {
+                self.topConstraint.constant = -33
+                self.collectionVW.setCollectionViewLayout(layout1, animated: true)
+                self.view.layoutIfNeeded()
+            })
+
+        }
+        
+    }
     func load(){
         userCategories = []
         for ca in (realm?.objects(Categories.self))!{
