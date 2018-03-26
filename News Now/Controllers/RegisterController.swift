@@ -31,9 +31,9 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTextField.borderStyle = .roundedRect
-        emailTextField.borderStyle = .roundedRect
-        passwordTextField.borderStyle = .roundedRect
+//        usernameTextField.borderStyle = .roundedRect
+//        emailTextField.borderStyle = .roundedRect
+//        passwordTextField.borderStyle = .roundedRect
         emailTextField.text = emailID
         passwordTextField.text = passID
         imageVW.contentMode = .scaleAspectFill

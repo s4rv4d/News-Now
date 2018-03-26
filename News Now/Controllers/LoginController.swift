@@ -52,10 +52,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     //MARK:Random functions
     func emailTextFAnchor(){
-        emailTextField.borderStyle = .roundedRect
+        //emailTextField.borderStyle = .roundedRect
     }
     func passwordTextFAnchor(){
-        passwordTextField.borderStyle = .roundedRect
+     //   passwordTextField.borderStyle = .roundedRect
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField{
@@ -137,6 +137,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
         if let destinationVC = segue.destination as? RegisterController{
             destinationVC.emailID = emailTextField.text
             destinationVC.passID = passwordTextField.text
+            emailTextField.text = ""
+            passwordTextField.text = ""
         }
     }
     

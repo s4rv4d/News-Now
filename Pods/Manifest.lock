@@ -63,6 +63,7 @@ PODS:
   - SDWebImage/Core (4.3.3)
   - SwiftKeychainWrapper (3.0.1)
   - SwiftyJSON (4.0.0)
+  - TextFieldEffects (1.4.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -76,6 +77,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
   - SwiftKeychainWrapper
   - SwiftyJSON (~> 4.0)
+  - TextFieldEffects
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
@@ -97,7 +99,8 @@ SPEC CHECKSUMS:
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
 
-PODFILE CHECKSUM: fa8dcdad24b555cfeb71aed3c859af04906cc875
+PODFILE CHECKSUM: 26215be8894697bf35ff6cbfa14491451dc7424b
 
 COCOAPODS: 1.4.0
