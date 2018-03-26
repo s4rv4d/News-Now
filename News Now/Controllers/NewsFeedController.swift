@@ -26,11 +26,11 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     let obj = Categories()
     let realm = try? Realm()
     var cat : [String] = []
+    var url2:URL?
     
     //MARK:IBOutlets
     @IBOutlet weak var collectionVW: UICollectionView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
-   
     
     
     //MARK:Override functions
@@ -110,15 +110,18 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     func updateDATA(json:JSON){
-        let title = json["articles"][0]["title"].stringValue
-        let data = json["articles"][0]["description"].stringValue
-        let imgurl = json["articles"][0]["urlToImage"].url
-        let nwurl = json["articles"][0]["url"].stringValue
-        let source = json["articles"][0]["source"]["name"].stringValue
-        let nwfeed = NewsFeed(title: title, data: data, imgURL: imgurl!, nwURL: nwurl, source: source)
+        for i in 0..<10 {
+        let title = json["articles"][i]["title"].stringValue
+        let data = json["articles"][i]["description"].stringValue
+        let imgurl = json["articles"][i]["urlToImage"].url
+        let nwurl = json["articles"][i]["url"].url
+        let source = json["articles"][i]["source"]["name"].stringValue
+            print(imgurl)
+            guard let imgURLS = imgurl else{return}
+            let nwfeed = NewsFeed(title: title, data: data, imgURL: imgURLS, nwURL: nwurl!, source: source)
         self.newsFeed.append(nwfeed)
         collectionVW.reloadData()
-        
+        }
     }
     
     //MARK:IBActions
@@ -155,7 +158,12 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //do nothing for now
+       url2 = newsFeed[indexPath.item].nwURL
+       let myWebView = self.storyboard?.instantiateViewController(withIdentifier: "webControl") as? WebViewController
+     //   var url:NSURL?
+        myWebView?.url = url2
+        self.present(myWebView!, animated: true, completion: nil)
+        
     }
 }
 

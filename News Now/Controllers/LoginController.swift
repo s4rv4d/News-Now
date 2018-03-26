@@ -36,8 +36,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     //MARK:Main functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextFAnchor()
-        passwordTextFAnchor()
+//        emailTextFAnchor()
+//        passwordTextFAnchor()
         observeNotification()
         emailTextField.keyboardAppearance = .dark
         passwordTextField.keyboardAppearance = .dark
@@ -51,12 +51,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     
     //MARK:Random functions
-    func emailTextFAnchor(){
-        //emailTextField.borderStyle = .roundedRect
-    }
-    func passwordTextFAnchor(){
-     //   passwordTextField.borderStyle = .roundedRect
-    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField{
             passwordTextField.becomeFirstResponder()
