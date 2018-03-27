@@ -11,5 +11,5 @@ import UIKit
 class NewsFeedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageVw: UIImageView!
-    @IBOutlet weak var details: UITextView!
+    @IBOutlet weak var title: UILabel!
 }

@@ -78,6 +78,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             UIView.animate(withDuration: 0.2, animations: {
                 self.topConstraint.constant = -33
                 self.collectionVW.setCollectionViewLayout(layout1, animated: true)
+                
                 self.view.layoutIfNeeded()
             })
 
@@ -116,7 +117,6 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         let imgurl = json["articles"][i]["urlToImage"].url
         let nwurl = json["articles"][i]["url"].url
         let source = json["articles"][i]["source"]["name"].stringValue
-            print(imgurl)
             guard let imgURLS = imgurl else{return}
             let nwfeed = NewsFeed(title: title, data: data, imgURL: imgURLS, nwURL: nwurl!, source: source)
         self.newsFeed.append(nwfeed)
@@ -154,13 +154,12 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsFeedCollectionViewCell
         cell.imageVw.sd_setImage(with:newsFeed[indexPath.item].imgURL, completed: nil)
-        cell.details.text = newsFeed[indexPath.item].data
+        cell.title.text = newsFeed[indexPath.item].title
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        url2 = newsFeed[indexPath.item].nwURL
        let myWebView = self.storyboard?.instantiateViewController(withIdentifier: "webControl") as? WebViewController
-     //   var url:NSURL?
         myWebView?.url = url2
         self.present(myWebView!, animated: true, completion: nil)
         
