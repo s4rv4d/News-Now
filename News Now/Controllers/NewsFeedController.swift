@@ -143,7 +143,9 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             
         }
     }
-    
+    @IBAction func profileButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToProfile", sender: nil)
+    }
     //MARK:Collection view methods
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
