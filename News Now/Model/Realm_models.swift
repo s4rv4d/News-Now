@@ -25,3 +25,12 @@ class Categories: Object {
     }
     let _conversion = List<RealmString>()
 }
+
+class Profile:Object{
+    @objc dynamic var user:String!
+    @objc dynamic var imageURL:Data!
+}
+
+//var user:String?
+//var imageURL:String?
+

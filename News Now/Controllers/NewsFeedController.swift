@@ -24,6 +24,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     var parameters:[String:String]!
     let url = newsURL()
     let obj = Categories()
+    let prof = Profile()
     let realm = try? Realm()
     var cat : [String] = []
     var url2:URL?
@@ -47,6 +48,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         view.addGestureRecognizer(downSwipe)
         
         print(userUID)
+        persistProfileData()
         
     }
     
@@ -113,6 +115,30 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             })
         }
     }
+    func persistProfileData(){
+                Database.database().reference().child("users").child(userUID!).observe(.value) { (dataSnapshot) in
+                    if let snapshot = dataSnapshot.children.allObjects as?[DataSnapshot]{
+                        guard let userNm = snapshot[1].value, let imURL = snapshot[0].value else {return}
+                        
+                        let ref = Storage.storage().reference(forURL: imURL as! String)
+                        
+                        ref.getData(maxSize: 1000000000, completion: { (data, error) in
+                            if error != nil{
+                                print("couldnt download image")
+                            }else{
+                                guard let imageData = data else{return}
+                                do{
+                                    try self.realm?.write {
+                                        let prof1 = Profile()
+                                        prof1.user = userNm as! String
+                                        prof1.imageURL = imageData
+                                        self.realm?.add(prof1)
+                                    }
+                                }catch{}
+                            }
+                            })}
+        }
+    }
     func updateDATA(json:JSON){
         for i in 0..<10 {
         let title = json["articles"][i]["title"].stringValue
@@ -140,6 +166,13 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
                 }catch{
                     
                 }
+            }
+            for pf in (realm?.objects(Profile.self))!{
+                do{
+                    try realm?.write {
+                        realm?.delete(pf)
+                    }
+                }catch{}
             }
             dismiss(animated: true, completion: nil)
         }catch{
@@ -178,4 +211,5 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         }
 }
 }
+
 

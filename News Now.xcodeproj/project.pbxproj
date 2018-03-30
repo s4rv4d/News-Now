@@ -12,7 +12,7 @@
 		403F37E5205EC44B00C184B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E3205EC44B00C184B0 /* Main.storyboard */; };
 		403F37E7205EC44B00C184B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E6205EC44B00C184B0 /* Assets.xcassets */; };
 		403F37EA205EC44B00C184B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403F37E8205EC44B00C184B0 /* LaunchScreen.storyboard */; };
-		4049E032206102FD00FAEB37 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E031206102FD00FAEB37 /* Categories.swift */; };
+		4049E032206102FD00FAEB37 /* Realm_models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E031206102FD00FAEB37 /* Realm_models.swift */; };
 		4049E0382061784500FAEB37 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E0372061784500FAEB37 /* RegisterController.swift */; };
 		4049E03C2061789000FAEB37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4049E03B2061789000FAEB37 /* GoogleService-Info.plist */; };
 		4049E03E20617D1900FAEB37 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049E03D20617D1900FAEB37 /* CategoryController.swift */; };
@@ -34,7 +34,7 @@
 		403F37E6205EC44B00C184B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		403F37E9205EC44B00C184B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		403F37EB205EC44B00C184B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4049E031206102FD00FAEB37 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		4049E031206102FD00FAEB37 /* Realm_models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm_models.swift; sourceTree = "<group>"; };
 		4049E0372061784500FAEB37 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		4049E03B2061789000FAEB37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4049E03D20617D1900FAEB37 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		4049E0342061728100FAEB37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4049E031206102FD00FAEB37 /* Categories.swift */,
+				4049E031206102FD00FAEB37 /* Realm_models.swift */,
 				4078DFCD2064C04C0024E808 /* NewsFeedModel.swift */,
 			);
 			path = Model;
@@ -330,7 +330,7 @@
 				4078DFD0206531310024E808 /* URL_Stuff.swift in Sources */,
 				403F37E2205EC44B00C184B0 /* LoginController.swift in Sources */,
 				403F37E0205EC44B00C184B0 /* AppDelegate.swift in Sources */,
-				4049E032206102FD00FAEB37 /* Categories.swift in Sources */,
+				4049E032206102FD00FAEB37 /* Realm_models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

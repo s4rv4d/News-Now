@@ -12,9 +12,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+        </array>
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Medium</string>
         </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Thin</string>
@@ -492,11 +496,11 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-iU-XtX">
-                                                                <rect key="frame" x="12" y="356" width="295" height="29"/>
+                                                                <rect key="frame" x="12" y="352" width="295" height="33"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="295" id="dbt-8u-f3a"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="24"/>
                                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -613,13 +617,26 @@
                                                 <constraint firstItem="iAc-cj-pxu" firstAttribute="leading" secondItem="qYQ-aC-wzn" secondAttribute="trailing" constant="83.5" id="zft-eK-uVX"/>
                                             </constraints>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="JT1-Ck-rVB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="JT1-Ck-rVB">
                                             <rect key="frame" x="92" y="103" width="190" height="190"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="190" id="24z-2l-hSa"/>
+                                                <constraint firstAttribute="height" constant="190" id="27h-Vw-0OG"/>
+                                                <constraint firstAttribute="width" secondItem="JT1-Ck-rVB" secondAttribute="height" multiplier="1:1" id="DUd-Ec-eOf"/>
+                                            </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bz-km-hw3">
+                                            <rect key="frame" x="92" y="301" width="190" height="41"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="23"/>
+                                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="JT1-Ck-rVB" firstAttribute="centerX" secondItem="dgr-dn-AQH" secondAttribute="centerX" id="AEe-e0-xZQ"/>
                                         <constraint firstItem="AuT-Cl-Hpe" firstAttribute="leading" secondItem="dgr-dn-AQH" secondAttribute="leading" id="IyV-QJ-kfN"/>
+                                        <constraint firstItem="JT1-Ck-rVB" firstAttribute="top" secondItem="AuT-Cl-Hpe" secondAttribute="bottom" constant="28" id="MO3-gj-qgu"/>
                                         <constraint firstItem="AuT-Cl-Hpe" firstAttribute="top" secondItem="dgr-dn-AQH" secondAttribute="top" id="hFF-w5-Eox"/>
                                         <constraint firstAttribute="trailing" secondItem="AuT-Cl-Hpe" secondAttribute="trailing" id="rWt-Fq-xDP"/>
                                     </constraints>
@@ -642,6 +659,7 @@
                     </view>
                     <connections>
                         <outlet property="profileImage" destination="JT1-Ck-rVB" id="Ogf-fg-3qZ"/>
+                        <outlet property="userName" destination="7bz-km-hw3" id="nKp-13-2qT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhz-Vd-SUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
