@@ -45,6 +45,9 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         downSwipe.direction = .down
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
+        
+        print(userUID)
+        
     }
     
     
@@ -166,5 +169,13 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         self.present(myWebView!, animated: true, completion: nil)
         
     }
+    
+    //MARK:Segue functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? ProfileViewController{
+            destinationVC.userUID = self.userUID
+            print("hi")
+        }
+}
 }
 

@@ -180,5 +180,6 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         if let destinationVC = segue.destination as? CategoryController{
             destinationVC.userUID = self.userUID
         }
+        
     }
 }

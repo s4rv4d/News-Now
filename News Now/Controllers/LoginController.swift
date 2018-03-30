@@ -134,6 +134,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
             emailTextField.text = ""
             passwordTextField.text = ""
         }
+        else if let destinationVC2 = segue.destination as? NewsFeedController{
+            destinationVC2.userUID = KeychainWrapper.standard.string(forKey: "uid")
+        }
     }
     
 }
