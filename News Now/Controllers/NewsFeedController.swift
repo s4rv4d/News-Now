@@ -33,7 +33,6 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionVW: UICollectionView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
-    
     //MARK:Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +45,9 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         downSwipe.direction = .down
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
-        
-        print(userUID)
         persistProfileData()
         
     }
-    
     
     //MARK:Random functions
     @objc func handleSwipe(_ sender:UISwipeGestureRecognizer){
@@ -163,9 +159,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
                     try realm?.write {
                         realm?.delete(ca)
                     }
-                }catch{
-                    
-                }
+                }catch{}
             }
             for pf in (realm?.objects(Profile.self))!{
                 do{
@@ -182,6 +176,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func profileButton(_ sender: UIButton) {
         performSegue(withIdentifier: "goToProfile", sender: nil)
     }
+    
     //MARK:Collection view methods
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -193,6 +188,8 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsFeedCollectionViewCell
         cell.imageVw.sd_setImage(with:newsFeed[indexPath.item].imgURL, completed: nil)
         cell.title.text = newsFeed[indexPath.item].title
+        cell.contentView.layer.cornerRadius = 14
+        cell.contentView.layer.masksToBounds = true
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -207,7 +204,6 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? ProfileViewController{
             destinationVC.userUID = self.userUID
-            print("hi")
         }
 }
 }

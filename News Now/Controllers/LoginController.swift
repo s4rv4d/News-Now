@@ -36,8 +36,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
     //MARK:Main functions
     override func viewDidLoad() {
         super.viewDidLoad()
-//        emailTextFAnchor()
-//        passwordTextFAnchor()
         observeNotification()
         emailTextField.keyboardAppearance = .dark
         passwordTextField.keyboardAppearance = .dark
@@ -90,12 +88,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 DispatchQueue.main.async {
                     Database.database().reference().child("categories").child(self.userUID!).observe(.value, with: { (snapshot) in
                         if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
-                            //print(snapshot)
                             self.arr = []
                             for data in snapshot{
                                 self.arr.append(data.value! as! String)
                             }
-                            print("its is" + "\(self.arr)")
                             self.obj.category = self.arr
                             do{
                                 try self.realm.write {
@@ -118,12 +114,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    @IBAction func goToRegister(_ sender: UIButton) {
-        //nothing for now
-    }
-    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){
-        
-    }
+    @IBAction func goToRegister(_ sender: UIButton) {}
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){}
     
     //MARK:Segue functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

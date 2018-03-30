@@ -11,15 +11,20 @@ import WebKit
 
 class WebViewController: UIViewController {
     
+    //MARK:Variables
     var url:URL?
 
+    //MARK:IBOutlets
     @IBOutlet weak var webView: WKWebView!
     
+    //MARK:Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         webView.load(URLRequest(url: url!))
     }
+    
+    //MARK:IBActions
     @IBAction func backButton(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
