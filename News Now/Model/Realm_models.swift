@@ -13,6 +13,7 @@ class RealmString: Object {
     @objc dynamic var stringValue = ""
 }
 
+//MARK:Category model class for storing in array with help of RealmString
 class Categories: Object {
     var category: [String] {
         get {
@@ -26,6 +27,7 @@ class Categories: Object {
     let _conversion = List<RealmString>()
 }
 
+//MARK:Profile model class
 class Profile:Object{
     @objc dynamic var user:String!
     @objc dynamic var imageURL:Data!

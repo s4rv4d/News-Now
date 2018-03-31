@@ -441,9 +441,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uj2-qa-WI5">
-                                                    <rect key="frame" x="318" y="54" width="42" height="33"/>
+                                                    <rect key="frame" x="318" y="57" width="42" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="yfG-QH-jgc"/>
+                                                        <constraint firstAttribute="height" constant="30" id="yfG-QH-jgc"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                                     <state key="normal" title="Profile">
@@ -504,6 +504,16 @@
                                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STu-OY-h6e" userLabel="Company">
+                                                                <rect key="frame" x="20" y="450" width="287" height="21"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="0Ge-Yt-TKY"/>
+                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="287" id="LYq-Ta-Voq"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                     </view>
                                                     <constraints>
@@ -511,13 +521,16 @@
                                                         <constraint firstItem="aI2-iU-XtX" firstAttribute="leading" secondItem="c71-Bo-PH3" secondAttribute="leadingMargin" constant="4" id="CGm-IK-ksX"/>
                                                         <constraint firstAttribute="trailing" secondItem="jm9-JM-d1q" secondAttribute="trailing" id="KN5-Fv-TgZ"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="aI2-iU-XtX" secondAttribute="bottom" constant="107" id="Nh0-V9-QH1"/>
+                                                        <constraint firstItem="STu-OY-h6e" firstAttribute="leading" secondItem="c71-Bo-PH3" secondAttribute="leadingMargin" constant="12" id="Rab-4H-ssT"/>
                                                         <constraint firstItem="TyG-WH-58W" firstAttribute="top" secondItem="c71-Bo-PH3" secondAttribute="top" id="ejP-Qp-oA9"/>
                                                         <constraint firstItem="jm9-JM-d1q" firstAttribute="leading" secondItem="c71-Bo-PH3" secondAttribute="leading" id="gL1-P0-fC4"/>
                                                         <constraint firstAttribute="trailing" secondItem="TyG-WH-58W" secondAttribute="trailing" id="ii7-qM-WZM"/>
                                                         <constraint firstAttribute="bottom" secondItem="jm9-JM-d1q" secondAttribute="bottom" id="ipi-z2-gnx"/>
                                                         <constraint firstItem="TyG-WH-58W" firstAttribute="leading" secondItem="c71-Bo-PH3" secondAttribute="leading" id="jK2-x7-2Su"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="STu-OY-h6e" secondAttribute="bottom" constant="21" id="wWo-JV-h5H"/>
                                                     </constraints>
                                                     <connections>
+                                                        <outlet property="company" destination="STu-OY-h6e" id="ISK-Wh-LrK"/>
                                                         <outlet property="imageVw" destination="TyG-WH-58W" id="eq9-XW-etf"/>
                                                         <outlet property="title" destination="aI2-iU-XtX" id="Bf5-Pk-qj8"/>
                                                     </connections>

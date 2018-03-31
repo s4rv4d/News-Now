@@ -20,7 +20,6 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     var userCategories:[String] = []
     var userUID:String!
     var newsFeed:[NewsFeed] = []
-    var newsFeed2:[NewsFeed] = []
     var parameters:[String:String]!
     let url = newsURL()
     let obj = Categories()
@@ -188,6 +187,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsFeedCollectionViewCell
         cell.imageVw.sd_setImage(with:newsFeed[indexPath.item].imgURL, completed: nil)
         cell.title.text = newsFeed[indexPath.item].title
+        cell.company.text = newsFeed[indexPath.item].source
         cell.contentView.layer.cornerRadius = 14
         cell.contentView.layer.masksToBounds = true
         return cell

@@ -11,6 +11,7 @@ import SwiftKeychainWrapper
 import Firebase
 import FirebaseStorage
 import FirebaseDatabase
+import iProgressHUD
 
 class RegisterController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate {
     
@@ -31,9 +32,6 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        usernameTextField.borderStyle = .roundedRect
-//        emailTextField.borderStyle = .roundedRect
-//        passwordTextField.borderStyle = .roundedRect
         emailTextField.text = emailID
         passwordTextField.text = passID
         imageVW.contentMode = .scaleAspectFill
@@ -58,6 +56,12 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         emailTextField.keyboardAppearance = .dark
         passwordTextField.keyboardAppearance = .dark
         usernameTextField.keyboardAppearance = .dark
+        
+        //MARK:Creating object of IProgressHUD
+        let iprogressHUD = iProgressHUD()
+        iprogressHUD.attachProgress(toView: self.view)
+        iprogressHUD.indicatorStyle = .ballZigZag
+        iprogressHUD.iprogressStyle = .horizontal
 
     }
     
@@ -84,6 +88,7 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
             print("image needs to be selected")
             let alert = UIAlertController(title: "Image needs to be selected", message: "go back", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Back", style: .cancel, handler: nil))
+            self.view.dismissProgress()
             present(alert, animated: true, completion: nil)
             return
         }
@@ -109,6 +114,7 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         KeychainWrapper.standard.set(self.userUID!, forKey: "uid")
         let location = Database.database().reference().child("users").child(userUID!)
         location.setValue(userData)
+        self.view.dismissProgress()
         performSegue(withIdentifier: "goToCategory", sender: nil)
         
     }
@@ -159,6 +165,7 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
         present(alert, animated: true, completion: nil)
     }
     @IBAction func registerUser(_ sender: UIButton) {
+        self.view.showProgress()
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil{
                 print("user can't be created")

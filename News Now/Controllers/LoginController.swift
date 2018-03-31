@@ -11,6 +11,7 @@ import RealmSwift
 import SwiftKeychainWrapper
 import Firebase
 import FirebaseDatabase
+import iProgressHUD
 
 class LoginController: UIViewController, UITextFieldDelegate {
     
@@ -36,6 +37,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
     //MARK:Main functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let iprogressHUD = iProgressHUD()
+        iprogressHUD.attachProgress(toView: self.view)
+        iprogressHUD.indicatorStyle = .ballZigZag
+        iprogressHUD.iprogressStyle = .horizontal
         observeNotification()
         emailTextField.keyboardAppearance = .dark
         passwordTextField.keyboardAppearance = .dark
@@ -80,6 +86,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     //MARK:IBActions
     @IBAction func loginIn(_ sender: UIButton) {
         loginInButton.isEnabled = false
+        view.showProgress()
         Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error == nil{
                 self.userUID = user?.uid
@@ -96,6 +103,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                             do{
                                 try self.realm.write {
                                     self.realm.add(self.obj)
+                                    self.view.dismissProgress()
                                     self.performSegue(withIdentifier: "goToNewsFeed", sender: nil)
                                     self.loginInButton.isEnabled = true
                                 }
@@ -109,6 +117,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 //*
                
             }else{
+                self.view.dismissProgress()
                 self.performSegue(withIdentifier: "goToRegister", sender: nil)
                 self.loginInButton.isEnabled = true
             }

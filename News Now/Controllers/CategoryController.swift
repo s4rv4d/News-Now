@@ -11,6 +11,7 @@ import Firebase
 import FirebaseDatabase
 import Magnetic
 import RealmSwift
+import iProgressHUD
 
 class CategoryController: UIViewController, MagneticDelegate {
     
@@ -29,6 +30,10 @@ class CategoryController: UIViewController, MagneticDelegate {
         magnetic?.magneticDelegate = self
         magnetic?.allowsMultipleSelection = true
         magnetic?.backgroundColor = .clear
+        let iprogressHUD = iProgressHUD()
+        iprogressHUD.attachProgress(toView: self.view)
+        iprogressHUD.indicatorStyle = .ballZigZag
+        iprogressHUD.iprogressStyle = .horizontal
     }
     override func loadView() {
         super.loadView()
@@ -69,6 +74,7 @@ class CategoryController: UIViewController, MagneticDelegate {
     
     //MARK:IBActions
     @IBAction func doneTapped(_ sender: UIButton) {
+        self.view.showProgress()
         let location = Database.database().reference().child("categories").child(userUID!)
         location.setValue(categories)
                 obj.category = categories
@@ -78,7 +84,7 @@ class CategoryController: UIViewController, MagneticDelegate {
                     }
                 }catch{
                 }
-        
+        self.view.dismissProgress()
         performSegue(withIdentifier: "goToNewsFeed2", sender: nil)
     }
     

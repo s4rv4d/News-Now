@@ -12,4 +12,5 @@ class NewsFeedCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageVw: UIImageView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var company: UILabel!
 }
