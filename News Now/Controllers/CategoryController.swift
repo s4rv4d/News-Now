@@ -37,7 +37,7 @@ class CategoryController: UIViewController, MagneticDelegate {
     }
     override func loadView() {
         super.loadView()
-        let magneticView = MagneticView(frame: CGRect(x: 0, y: 0, width: 375, height: 450))
+        let magneticView = MagneticView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 450))
         magnetic = magneticView.magnetic
         magneticView.backgroundColor = .clear
         self.view.addSubview(magneticView)
