@@ -505,7 +505,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STu-OY-h6e" userLabel="Company">
-                                                                <rect key="frame" x="20" y="450" width="287" height="21"/>
+                                                                <rect key="frame" x="20" y="441" width="287" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="0Ge-Yt-TKY"/>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="287" id="LYq-Ta-Voq"/>
@@ -527,7 +527,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="TyG-WH-58W" secondAttribute="trailing" id="ii7-qM-WZM"/>
                                                         <constraint firstAttribute="bottom" secondItem="jm9-JM-d1q" secondAttribute="bottom" id="ipi-z2-gnx"/>
                                                         <constraint firstItem="TyG-WH-58W" firstAttribute="leading" secondItem="c71-Bo-PH3" secondAttribute="leading" id="jK2-x7-2Su"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="STu-OY-h6e" secondAttribute="bottom" constant="21" id="wWo-JV-h5H"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="STu-OY-h6e" secondAttribute="bottom" constant="30" id="wWo-JV-h5H"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="company" destination="STu-OY-h6e" id="ISK-Wh-LrK"/>
