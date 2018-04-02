@@ -13,6 +13,7 @@ import RealmSwift
 import Firebase
 import SwiftKeychainWrapper
 import SDWebImage
+import iProgressHUD
 
 class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -38,6 +39,10 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         load()
         getCat()
         getData()
+        let iprogressHUD = iProgressHUD()
+        iprogressHUD.attachProgress(toView: self.view)
+        iprogressHUD.indicatorStyle = .ballZigZag
+        iprogressHUD.iprogressStyle = .horizontal
         let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(NewsFeedController.handleSwipe(_:)))
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(NewsFeedController.handleSwipe(_:)))
         upSwipe.direction = .up
@@ -45,6 +50,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
         persistProfileData()
+        
         
     }
     
@@ -87,6 +93,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     func load(){
         userCategories = []
+        self.view.showProgress()
         for ca in (realm?.objects(Categories.self))!{
             userCategories = ca.category        }
     }
@@ -144,12 +151,14 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             guard let imgURLS = imgurl else{return}
             let nwfeed = NewsFeed(title: title, data: data, imgURL: imgURLS, nwURL: nwurl!, source: source)
         self.newsFeed.append(nwfeed)
+            self.view.dismissProgress()
         collectionVW.reloadData()
         }
     }
     
     //MARK:IBActions
     @IBAction func signOut(_ sender: UIButton) {
+        self.view.showProgress()
         do{
             try Auth.auth().signOut()
             KeychainWrapper.standard.removeObject(forKey: "uid")
@@ -167,6 +176,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
                     }
                 }catch{}
             }
+            self.view.dismissProgress()
             dismiss(animated: true, completion: nil)
         }catch{
             
@@ -193,9 +203,11 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.view.showProgress()
        url2 = newsFeed[indexPath.item].nwURL
        let myWebView = self.storyboard?.instantiateViewController(withIdentifier: "webControl") as? WebViewController
         myWebView?.url = url2
+        self.view.dismissProgress()
         self.present(myWebView!, animated: true, completion: nil)
         
     }

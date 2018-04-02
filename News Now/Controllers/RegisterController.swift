@@ -153,11 +153,15 @@ class RegisterController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func pickImage(_ sender: UIButton) {
         let alert = UIAlertController(title: "Choose media type", message: "", preferredStyle: .alert)
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (_) in
+            self.view.showProgress()
             self.imagePickerController.sourceType = .camera
+            self.view.dismissProgress()
             self.present(self.imagePickerController, animated: true, completion: nil)
         }
         let photoLibraryAction = UIAlertAction(title: "Photos", style: .default) { (_) in
+            self.view.showProgress()
             self.imagePickerController.sourceType = .photoLibrary
+            self.view.dismissProgress()
             self.present(self.imagePickerController, animated: true, completion: nil)
         }
         alert.addAction(cameraAction)
