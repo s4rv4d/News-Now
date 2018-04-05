@@ -184,6 +184,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             }
             self.view.dismissProgress()
             dismiss(animated: true, completion: nil)
+            flag = 0
         }catch{
             
         }

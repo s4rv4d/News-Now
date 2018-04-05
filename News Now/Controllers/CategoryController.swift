@@ -45,12 +45,18 @@ class CategoryController: UIViewController, MagneticDelegate {
         
         let tech = Node(text: "Technology", image: UIImage(named:"technology"), color: .orange, radius: 60)
         magnetic?.addChild(tech)
-        let entertainment = Node(text: "Entertainent", image: UIImage(named:"music"), color: .cyan, radius: 70)
+        let entertainment = Node(text: "Entertainent", image: UIImage(named:"music"), color: .cyan, radius: 50)
         magnetic?.addChild(entertainment)
         let sport = Node(text: "Sports", image: UIImage(named:"sports"), color: .green, radius: 50)
         magnetic?.addChild(sport)
         let worlds = Node(text: "World", image: UIImage(named:"world"), color: .blue, radius: 60)
         magnetic?.addChild(worlds)
+        let game = Node(text: "Gaming", image: UIImage(named:"gaming"), color: .magenta, radius: 50)
+        magnetic?.addChild(game)
+        let businesss = Node(text: "Business", image: UIImage(named:"business"), color: .lightGray, radius: 60)
+        magnetic?.addChild(businesss)
+        let sci = Node(text: "Science", image: UIImage(named:"science"), color: .purple, radius: 50)
+        magnetic?.addChild(sci)
         
         
     }

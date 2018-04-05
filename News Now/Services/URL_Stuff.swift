@@ -18,6 +18,6 @@ class subCategories{
     
     static let shared:subCategories = subCategories()
     
-    let sub:[String:[String]] = ["Technology":["ign","engadget"],"Entertainent":["mtv-news","mtv-news-uk"],"Sports":["nfl-news","espn-cric-info"],"World":["abc-news","cnn"]]
+    let sub:[String:[String]] = ["Technology":["engadget","the-verge","techcrunch","wired","crypto-coins-news"],"Entertainent":["mtv-news","mtv-news-uk","buzzfeed","daily-mail","entertainment-weekly","mashable"],"Sports":["nfl-news","espn-cric-info","bbc-sport","bleacher-report","football-italia","fox-sports"],"World":["abc-news","cnn","bbc-news","al-jazeera-english","associated-press","fox-news","google-news","the-times-of-india"],"Gaming":["ign"],"Business":["bloomberg","business-insider","fortune","the-economist"],"Science":["new-scientist"]]
 }
 
