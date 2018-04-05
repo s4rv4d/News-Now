@@ -28,6 +28,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     let realm = try? Realm()
     var cat : [String] = []
     var url2:URL?
+    var flag = 0
     
     //MARK:IBOutlets
     @IBOutlet weak var collectionVW: UICollectionView!
@@ -43,6 +44,10 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         iprogressHUD.attachProgress(toView: self.view)
         iprogressHUD.indicatorStyle = .ballZigZag
         iprogressHUD.iprogressStyle = .horizontal
+        if flag == 0{
+            self.view.showProgress()
+            flag = 1
+        }
         let upSwipe = UISwipeGestureRecognizer(target: self, action: #selector(NewsFeedController.handleSwipe(_:)))
         let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(NewsFeedController.handleSwipe(_:)))
         upSwipe.direction = .up
@@ -53,6 +58,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         
         
     }
+
     
     //MARK:Random functions
     @objc func handleSwipe(_ sender:UISwipeGestureRecognizer){
