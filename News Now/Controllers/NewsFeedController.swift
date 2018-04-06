@@ -150,17 +150,20 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     func updateDATA(json:JSON){
-        for i in 0..<10 {
-        let title = json["articles"][i]["title"].stringValue
-        let data = json["articles"][i]["description"].stringValue
-        let imgurl = json["articles"][i]["urlToImage"].url
-        let nwurl = json["articles"][i]["url"].url
-        let source = json["articles"][i]["source"]["name"].stringValue
-            guard let imgURLS = imgurl else{return}
-            let nwfeed = NewsFeed(title: title, data: data, imgURL: imgURLS, nwURL: nwurl!, source: source)
-        self.newsFeed.append(nwfeed)
-            self.view.dismissProgress()
-        collectionVW.reloadData()
+            for i in 0..<10 {
+                let title = json["articles"][i]["title"].stringValue
+                let data = json["articles"][i]["description"].stringValue
+                let imgurl = json["articles"][i]["urlToImage"].url
+                let nwurl = json["articles"][i]["url"].url
+                let source = json["articles"][i]["source"]["name"].stringValue
+                guard let imgURLS = imgurl else{return}
+                let nwfeed = NewsFeed(title: title, data: data, imgURL: imgURLS, nwURL: nwurl!, source: source)
+                self.newsFeed.append(nwfeed)
+                self.view.dismissProgress()
+                DispatchQueue.main.async {
+                    self.collectionVW.reloadData()
+                }
+               
         }
     }
     func checkConnection(){
@@ -218,12 +221,13 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         return newsFeed.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsFeedCollectionViewCell
-        cell.imageVw.sd_setImage(with:newsFeed[indexPath.item].imgURL, completed: nil)
-        cell.title.text = newsFeed[indexPath.item].title
-        cell.company.text = newsFeed[indexPath.item].source
-        cell.contentView.layer.cornerRadius = 14
-        cell.contentView.layer.masksToBounds = true
+      
+          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewsFeedCollectionViewCell
+            cell.imageVw.sd_setImage(with:self.newsFeed[indexPath.item].imgURL, completed: nil)
+            cell.title.text = newsFeed[indexPath.item].title
+            cell.company.text = newsFeed[indexPath.item].source
+            cell.contentView.layer.cornerRadius = 14
+            cell.contentView.layer.masksToBounds = true
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
