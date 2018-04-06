@@ -59,20 +59,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         persistProfileData()
     }
     override func viewDidAppear(_ animated: Bool) {
-        
-        switch self.reachability.connection {
-        case .wifi:
-            print("connected via wifi")
-        case .cellular:
-            print("connected via cellular")
-        case .none:
-            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-        default:
-            print("Hello World!")
-        }
-
+        checkConnection()
     }
     
     //MARK:Random functions
@@ -175,6 +162,21 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             self.view.dismissProgress()
         collectionVW.reloadData()
         }
+    }
+    func checkConnection(){
+        switch self.reachability.connection {
+        case .wifi:
+            print("connected via wifi")
+        case .cellular:
+            print("connected via cellular")
+        case .none:
+            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        default:
+            print("Hello World!")
+        }
+
     }
     
     //MARK:IBActions

@@ -52,20 +52,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         if let _ = KeychainWrapper.standard.string(forKey: "uid"){
             performSegue(withIdentifier: "goToNewsFeed", sender: nil)
         }else{
-        switch self.reachability.connection {
-        case .wifi:
-            print("connected via wifi")
-        case .cellular:
-            print("connected via cellular")
-        case .none:
-            print("hhihi")
-            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
-           // self.addChildViewController(alert)
-            self.present(alert, animated: true, completion: nil)
-        default:
-            print("Hello World!")
-        }
+            checkConnection()
         }
     }
 
@@ -97,6 +84,22 @@ class LoginController: UIViewController, UITextFieldDelegate {
     UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
         self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
     }, completion: nil)
+    }
+    func checkConnection(){
+        switch self.reachability.connection {
+        case .wifi:
+            print("connected via wifi")
+        case .cellular:
+            print("connected via cellular")
+        case .none:
+            print("hhihi")
+            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
+            // self.addChildViewController(alert)
+            self.present(alert, animated: true, completion: nil)
+        default:
+            print("Hello World!")
+        }
     }
 
     //MARK:IBActions
