@@ -24,6 +24,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     var userUID:String?
     var arr:[String] = []
     let obj = Categories()
+    var reachability:Reachability!
     
     //MARK:Private functions
     private func observeNotification(){
@@ -34,10 +35,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
     //MARK:Realm
     let realm = try! Realm()
 
-    //MARK:Main functions
+    //MARK:Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.reachability = Reachability.init()
         let iprogressHUD = iProgressHUD()
         iprogressHUD.attachProgress(toView: self.view)
         iprogressHUD.indicatorStyle = .ballZigZag
@@ -45,12 +46,27 @@ class LoginController: UIViewController, UITextFieldDelegate {
         observeNotification()
         emailTextField.keyboardAppearance = .dark
         passwordTextField.keyboardAppearance = .dark
-
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         if let _ = KeychainWrapper.standard.string(forKey: "uid"){
             performSegue(withIdentifier: "goToNewsFeed", sender: nil)
-     }
+        }else{
+        switch self.reachability.connection {
+        case .wifi:
+            print("connected via wifi")
+        case .cellular:
+            print("connected via cellular")
+        case .none:
+            print("hhihi")
+            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
+           // self.addChildViewController(alert)
+            self.present(alert, animated: true, completion: nil)
+        default:
+            print("Hello World!")
+        }
+        }
     }
 
     

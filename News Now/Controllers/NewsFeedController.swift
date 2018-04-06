@@ -29,6 +29,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     var cat : [String] = []
     var url2:URL?
     var flag = 0
+    var reachability:Reachability!
     
     //MARK:IBOutlets
     @IBOutlet weak var collectionVW: UICollectionView!
@@ -37,6 +38,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     //MARK:Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.reachability = Reachability.init()
         load()
         getCat()
         getData()
@@ -55,10 +57,23 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
         persistProfileData()
-        
-        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        switch self.reachability.connection {
+        case .wifi:
+            print("connected via wifi")
+        case .cellular:
+            print("connected via cellular")
+        case .none:
+            let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        default:
+            print("Hello World!")
+        }
 
+    }
     
     //MARK:Random functions
     @objc func handleSwipe(_ sender:UISwipeGestureRecognizer){
