@@ -160,8 +160,9 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
                 let nwfeed = NewsFeed(title: title, data: data, imgURL: imgURLS, nwURL: nwurl!, source: source)
                 self.newsFeed.append(nwfeed)
                 self.view.dismissProgress()
-                DispatchQueue.main.async {
-                    self.collectionVW.reloadData()
+                let queue = DispatchQueue(label: "lol", qos: DispatchQoS.background)
+                queue.sync {
+                      self.collectionVW.reloadData()
                 }
                
         }
