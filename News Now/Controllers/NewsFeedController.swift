@@ -76,9 +76,9 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
                 return lay
             }()
             if topConstraint.constant == -33{
-            UIView.animate(withDuration: 0.2, animations: {
-               self.bottomConstarin.constant = 0
+                self.bottomConstarin.constant = 0
                 self.topConstarint.constant = 0
+            UIView.animate(withDuration: 0.2, animations: {
                 self.topConstraint.constant += -100
                 self.collectionVW.setCollectionViewLayout(layout, animated: true)
                 self.view.layoutIfNeeded()
@@ -93,10 +93,11 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
                 lay.itemSize = CGSize(width: self.view.frame.width * 0.8, height: self.view.frame.height - 167)
                 return lay
             }()
+            self.bottomConstarin.constant = 49
+            self.topConstarint.constant = 73
             UIView.animate(withDuration: 0.2, animations: {
                 self.topConstraint.constant = -33
                 self.collectionVW.setCollectionViewLayout(layout1, animated: true)
-                
                 self.view.layoutIfNeeded()
             })
 
