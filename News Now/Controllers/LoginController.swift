@@ -97,8 +97,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
             // self.addChildViewController(alert)
             self.present(alert, animated: true, completion: nil)
-        default:
-            print("Hello World!")
+//        default:
+//            print("Hello World!")
         }
     }
 

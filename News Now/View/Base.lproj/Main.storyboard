@@ -406,7 +406,7 @@
         <scene sceneID="VIP-5v-7eA">
             <objects>
                 <viewController id="8JU-X1-XeS" customClass="NewsFeedController" customModule="News_Now" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="AO3-FK-UIb">
+                    <view key="view" contentMode="scaleToFill" id="AO3-FK-UIb" userLabel="master">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -568,7 +568,10 @@
                         <viewLayoutGuide key="safeArea" id="h0P-Ge-pF9"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstarin" destination="wxP-yr-G08" id="ksN-9P-M4f"/>
                         <outlet property="collectionVW" destination="Ny1-cX-dov" id="G3x-YL-3J5"/>
+                        <outlet property="master" destination="AO3-FK-UIb" id="MTT-Aa-UXb"/>
+                        <outlet property="topConstarint" destination="8S7-0a-Ko7" id="zWp-87-fSa"/>
                         <outlet property="topConstraint" destination="s60-Al-4OA" id="dc7-CL-zcG"/>
                         <segue destination="op9-OX-hnN" kind="presentation" identifier="goToProfile" id="X1J-es-Ngd"/>
                     </connections>

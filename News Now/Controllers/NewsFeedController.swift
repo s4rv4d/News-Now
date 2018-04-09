@@ -34,6 +34,9 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     //MARK:IBOutlets
     @IBOutlet weak var collectionVW: UICollectionView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet var master: UIView!
+    @IBOutlet weak var bottomConstarin: NSLayoutConstraint!
+    @IBOutlet weak var topConstarint: NSLayoutConstraint!
     
     //MARK:Override functions
     override func viewDidLoad() {
@@ -68,14 +71,15 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             let layout:UICollectionViewFlowLayout = {
                 let lay = UICollectionViewFlowLayout()
                 lay.scrollDirection = .horizontal
-                lay.sectionInset = UIEdgeInsetsMake(10, 20, 0, 20)
-                lay.itemSize = CGSize(width: 335, height: 600)
+                lay.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                lay.itemSize = CGSize(width: self.view.frame.width , height: self.view.frame.height)
                 return lay
             }()
             if topConstraint.constant == -33{
             UIView.animate(withDuration: 0.2, animations: {
+               self.bottomConstarin.constant = 0
+                self.topConstarint.constant = 0
                 self.topConstraint.constant += -100
-                
                 self.collectionVW.setCollectionViewLayout(layout, animated: true)
                 self.view.layoutIfNeeded()
             })
@@ -85,8 +89,8 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             let layout1:UICollectionViewFlowLayout = {
                 let lay = UICollectionViewFlowLayout()
                 lay.scrollDirection = .horizontal
-                lay.sectionInset = UIEdgeInsetsMake(20, 20, 0, 20)
-                lay.itemSize = CGSize(width: 335, height: 500)
+                lay.sectionInset = UIEdgeInsetsMake(20, 20, 10, 20)
+                lay.itemSize = CGSize(width: self.view.frame.width * 0.8, height: self.view.frame.height - 167)
                 return lay
             }()
             UIView.animate(withDuration: 0.2, animations: {
@@ -177,8 +181,8 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
-        default:
-            print("Hello World!")
+//        default:
+//            print("Hello World!")
         }
 
     }
