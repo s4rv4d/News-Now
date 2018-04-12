@@ -37,6 +37,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet var master: UIView!
     @IBOutlet weak var bottomConstarin: NSLayoutConstraint!
     @IBOutlet weak var topConstarint: NSLayoutConstraint!
+    @IBOutlet weak var topBarView: UIView!
     
     //MARK:Override functions
     override func viewDidLoad() {
@@ -59,7 +60,9 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         downSwipe.direction = .down
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
+        collectionVW.decelerationRate = 0.2
         persistProfileData()
+        updateTopBarView()
     }
     override func viewDidAppear(_ animated: Bool) {
         checkConnection()
@@ -190,6 +193,9 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         }
 
     }
+    func updateTopBarView(){
+        topBarView.setGradientBackground(colorOne: ColorHelper.shared.colorBlue, colorTwo: ColorHelper.shared.yellowishThing)
+    }
     
     //MARK:IBActions
     @IBAction func signOut(_ sender: UIButton) {
@@ -248,6 +254,16 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         self.present(myWebView!, animated: true, completion: nil)
         
     }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let x = scrollView.contentOffset.x
+        let w = scrollView.bounds.size.width
+        let currentPage = Int(ceil(x/w))
+        // Do whatever with currentPage.
+        print(currentPage)
+        print(Float(1/currentPage))
+        print(newsFeed.count)
+    }
+    
     
     //MARK:Segue functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
