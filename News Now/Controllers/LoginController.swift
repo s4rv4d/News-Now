@@ -50,6 +50,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         if let _ = KeychainWrapper.standard.string(forKey: "uid"){
+            checkConnection()
             performSegue(withIdentifier: "goToNewsFeed", sender: nil)
         }else{
             checkConnection()
@@ -94,11 +95,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
         case .none:
             print("hhihi")
             let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
-            // self.addChildViewController(alert)
+            alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (_) in
+                if let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!){
+                    UIApplication.shared.open(settingsURL as URL)
+                }
+            }))
             self.present(alert, animated: true, completion: nil)
-//        default:
-//            print("Hello World!")
         }
     }
 
@@ -137,6 +139,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                
             }else{
                 self.view.dismissProgress()
+                self.emailTextField.text = ""
+                self.passwordTextField.text = ""
                 self.performSegue(withIdentifier: "goToRegister", sender: nil)
                 self.loginInButton.isEnabled = true
             }

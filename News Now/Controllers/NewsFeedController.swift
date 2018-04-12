@@ -180,10 +180,13 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
             print("connected via cellular")
         case .none:
             let alert = UIAlertController(title: "Alert", message: "No internet connection", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Go To Settings", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (_) in
+                if let settingsURL = NSURL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!){
+                    UIApplication.shared.open(settingsURL as URL)
+                }
+            }))
             present(alert, animated: true, completion: nil)
-//        default:
-//            print("Hello World!")
+
         }
 
     }
