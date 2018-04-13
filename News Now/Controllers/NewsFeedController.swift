@@ -30,6 +30,11 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
     var url2:URL?
     var flag = 0
     var reachability:Reachability!
+    var counter = 0
+    var locationCol:Float = 1.0
+    let gradient = CAGradientLayer()
+    var gradientSet = [[CGColor]]()
+    var currentGradient: Int = 0
     
     //MARK:IBOutlets
     @IBOutlet weak var collectionVW: UICollectionView!
@@ -194,7 +199,31 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
 
     }
     func updateTopBarView(){
-        topBarView.setGradientBackground(colorOne: ColorHelper.shared.colorBlue, colorTwo: ColorHelper.shared.yellowishThing)
+        gradientSet.append([ColorHelper.shared.colorBlue.cgColor, ColorHelper.shared.yellowishThing.cgColor])
+        gradientSet.append([ColorHelper.shared.yellowishThing.cgColor, ColorHelper.shared.colorBlue.cgColor])
+        gradientSet.append([ColorHelper.shared.colorBlue.cgColor, ColorHelper.shared.colorBlue.cgColor])
+        gradientSet.append([ColorHelper.shared.colorBlue.cgColor, ColorHelper.shared.yellowishThing.cgColor])
+        gradient.frame = CGRect(x: 0, y: 0, width: topBarView.frame.width, height: topBarView.frame.height)
+        gradient.colors = gradientSet[currentGradient]
+        gradient.startPoint = CGPoint(x:0, y:0)
+        gradient.endPoint = CGPoint(x:1, y:1)
+        gradient.drawsAsynchronously = true
+        topBarView.layer.insertSublayer(gradient, at: 0)
+        animateGradient()
+    }
+    func animateGradient() {
+        if currentGradient < gradientSet.count {
+            currentGradient += 1
+        } else {
+            currentGradient = 0
+        }
+        
+        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
+        gradientChangeAnimation.duration = 5.0
+        gradientChangeAnimation.toValue = gradientSet[currentGradient]
+        gradientChangeAnimation.fillMode = kCAFillModeForwards
+        gradientChangeAnimation.isRemovedOnCompletion = false
+        gradient.add(gradientChangeAnimation, forKey: "colorChange")
     }
     
     //MARK:IBActions
@@ -259,9 +288,22 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         let w = scrollView.bounds.size.width
         let currentPage = Int(ceil(x/w))
         // Do whatever with currentPage.
-        print(currentPage)
-        print(Float(1/currentPage))
-        print(newsFeed.count)
+//        counter = currentPage
+//        let diff:Float = 0.2
+//        let locationSome = Float(Float(Float(currentPage) * diff) + locationCol)
+//        if counter == 10{
+//            counter = 0
+//            print(locationSome)
+//        }
+//        let NSNumberVal = NSNumber(value: locationSome)
+//        print(NSNumberVal)
+//        UIView.animate(withDuration: 1.0) {
+//            self.topBarView.setGradientBackgroundWithLocation(colorOne: ColorHelper.shared.colorBlue, colorTwo: ColorHelper.shared.yellowishThing, locationTwo: NSNumberVal)
+//            self.view.layoutIfNeeded()
+//        }
+        updateTopBarView()
+
+
     }
     
     
@@ -272,5 +314,16 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         }
 }
 }
+extension NewsFeedController: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+            gradient.colors = gradientSet[currentGradient]
+            animateGradient()
+        }
+    }
+    
+}
+
+
 
 
