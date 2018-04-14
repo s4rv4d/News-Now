@@ -203,7 +203,7 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         gradientSet.append([ColorHelper.shared.yellowishThing.cgColor, ColorHelper.shared.colorBlue.cgColor])
         gradientSet.append([ColorHelper.shared.colorBlue.cgColor, ColorHelper.shared.colorBlue.cgColor])
         gradientSet.append([ColorHelper.shared.colorBlue.cgColor, ColorHelper.shared.yellowishThing.cgColor])
-        gradient.frame = CGRect(x: 0, y: 0, width: topBarView.frame.width, height: topBarView.frame.height)
+        gradient.frame = CGRect(x: 0, y: 0, width: topBarView.frame.width + 100, height: topBarView.frame.height)
         gradient.colors = gradientSet[currentGradient]
         gradient.startPoint = CGPoint(x:0, y:0)
         gradient.endPoint = CGPoint(x:1, y:1)
