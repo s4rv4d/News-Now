@@ -125,6 +125,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                                 try self.realm.write {
                                     self.realm.add(self.obj)
                                     self.view.dismissProgress()
+                                    self.emailTextField.text = ""
+                                    self.passwordTextField.text = ""
                                     self.performSegue(withIdentifier: "goToNewsFeed", sender: nil)
                                     self.loginInButton.isEnabled = true
                                 }
@@ -138,10 +140,12 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 //*
                
             }else{
+                
                 self.view.dismissProgress()
-                self.emailTextField.text = ""
-                self.passwordTextField.text = ""
-                self.performSegue(withIdentifier: "goToRegister", sender: nil)
+                let alert = UIAlertController(title: "Error", message: "Invalid Credentials", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Done", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
                 self.loginInButton.isEnabled = true
             }
         }
