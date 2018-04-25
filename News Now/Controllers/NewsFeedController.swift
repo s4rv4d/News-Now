@@ -14,6 +14,7 @@ import Firebase
 import SwiftKeychainWrapper
 import SDWebImage
 import iProgressHUD
+import ObjectiveC
 
 class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -68,6 +69,8 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionVW.decelerationRate = 0.2
         persistProfileData()
         updateTopBarView()
+        
+        collectionVW.mask?.frame =  CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height - 167)
     }
     override func viewDidAppear(_ animated: Bool) {
         checkConnection()
@@ -225,6 +228,17 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         gradientChangeAnimation.isRemovedOnCompletion = false
         gradient.add(gradientChangeAnimation, forKey: "colorChange")
     }
+    // This is in the UICollectionView subclass
+    private func addGradientMask() {
+
+        let gradient = CAGradientLayer()
+        gradient.frame = (self.collectionVW.superview?.bounds)!
+        gradient.colors = [UIColor.white.withAlphaComponent(0).cgColor,UIColor.white.cgColor,UIColor.white.withAlphaComponent(0).cgColor]
+        gradient.locations = [0.0,0.5,1.0]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        self.collectionVW.superview?.layer.mask = gradient
+    }
     
     //MARK:IBActions
     @IBAction func signOut(_ sender: UIButton) {
@@ -284,28 +298,13 @@ class NewsFeedController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let x = scrollView.contentOffset.x
-        let w = scrollView.bounds.size.width
-        let currentPage = Int(ceil(x/w))
-        // Do whatever with currentPage.
-//        counter = currentPage
-//        let diff:Float = 0.2
-//        let locationSome = Float(Float(Float(currentPage) * diff) + locationCol)
-//        if counter == 10{
-//            counter = 0
-//            print(locationSome)
-//        }
-//        let NSNumberVal = NSNumber(value: locationSome)
-//        print(NSNumberVal)
-//        UIView.animate(withDuration: 1.0) {
-//            self.topBarView.setGradientBackgroundWithLocation(colorOne: ColorHelper.shared.colorBlue, colorTwo: ColorHelper.shared.yellowishThing, locationTwo: NSNumberVal)
-//            self.view.layoutIfNeeded()
-//        }
+
         updateTopBarView()
-
-
+       // addGradientMask()
     }
-    
+    private func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.collectionVW.superview?.mask?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width * 0.8, height: self.view.frame.height - 167)
+    }
     
     //MARK:Segue functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -323,7 +322,3 @@ extension NewsFeedController: CAAnimationDelegate {
     }
     
 }
-
-
-
-
