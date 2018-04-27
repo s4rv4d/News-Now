@@ -44,18 +44,25 @@ class CategoryController: UIViewController, MagneticDelegate {
         view.bringSubview(toFront: magneticView)
         
         let tech = Node(text: "Technology", image: UIImage(named:"technology"), color: ColorHelper.shared.colorBlue, radius: 50)
+        tech.label.fontColor = ColorHelper.shared.yellowishThing
         magnetic?.addChild(tech)
         let entertainment = Node(text: "Entertainent", image: UIImage(named:"music"), color: ColorHelper.shared.colorBlue, radius: 50)
+        entertainment.label.fontColor = ColorHelper.shared.yellowishThing
         magnetic?.addChild(entertainment)
         let sport = Node(text: "Sports", image: UIImage(named:"sports"), color: ColorHelper.shared.colorBlue, radius: 50)
+        sport.label.fontColor = ColorHelper.shared.yellowishThing
         magnetic?.addChild(sport)
         let worlds = Node(text: "World", image: UIImage(named:"world"), color: ColorHelper.shared.colorBlue, radius: 50)
+        worlds.label.fontColor = ColorHelper.shared.yellowishThing
         magnetic?.addChild(worlds)
         let game = Node(text: "Gaming", image: UIImage(named:"gaming"), color: ColorHelper.shared.colorBlue, radius: 50)
+        game.label.fontColor = ColorHelper.shared.yellowishThing
         magnetic?.addChild(game)
         let businesss = Node(text: "Business", image: UIImage(named:"business"), color: ColorHelper.shared.colorBlue, radius: 50)
+        businesss.label.fontColor = ColorHelper.shared.yellowishThing
         magnetic?.addChild(businesss)
         let sci = Node(text: "Science", image: UIImage(named:"science"), color: ColorHelper.shared.colorBlue, radius: 50)
+        sci.label.fontColor = ColorHelper.shared.yellowishThing
         magnetic?.addChild(sci)
         
         
