@@ -22,6 +22,10 @@ class CategoryController: UIViewController, MagneticDelegate {
     let exampleColor = UIColor.black
     let obj = Categories()
     let realm = try? Realm()
+    var flag = 0
+    
+    //MARK:IBOutlets
+    @IBOutlet weak var nextButton:UIButton!
     
 
     //MARK:Override functions
@@ -34,11 +38,15 @@ class CategoryController: UIViewController, MagneticDelegate {
         iprogressHUD.attachProgress(toView: self.view)
         iprogressHUD.indicatorStyle = .ballZigZag
         iprogressHUD.iprogressStyle = .horizontal
+        let translate = CGAffineTransform.init(translationX: 0, y: 500)
+        let scale = CGAffineTransform.init(scaleX: 0, y: 0).concatenating(translate)
+        nextButton.transform = scale
     }
     override func loadView() {
         super.loadView()
         let magneticView = MagneticView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 450))
         magnetic = magneticView.magnetic
+        magneticView.tintColor = ColorHelper.shared.yellowishThing
         magneticView.backgroundColor = .clear
         self.view.addSubview(magneticView)
         view.bringSubview(toFront: magneticView)
@@ -71,6 +79,13 @@ class CategoryController: UIViewController, MagneticDelegate {
     //MARK:Magnetic function
     func magnetic(_ magnetic: Magnetic, didSelect node: Node) {
         showChild()
+        if flag == 1{
+            UIView.animate(withDuration: 0.4, animations: {
+                self.nextButton.transform = CGAffineTransform.identity
+            })
+            
+        }else{//do nothing
+        }
     }
     func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
         showChild()
@@ -79,6 +94,7 @@ class CategoryController: UIViewController, MagneticDelegate {
     //MARK:Random functions
     func showChild(){
         guard let num = magnetic?.selectedChildren.count else{return}
+        flag = 1
         categories = []
         for i in 0..<num{
             categories.append((magnetic?.selectedChildren[i].label.text!)!)

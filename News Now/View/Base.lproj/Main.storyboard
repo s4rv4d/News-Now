@@ -221,6 +221,7 @@
                         <viewLayoutGuide key="safeArea" id="fAv-lK-5MC"/>
                     </view>
                     <connections>
+                        <outlet property="nextButton" destination="oSG-5d-N2b" id="WQg-6C-TRO"/>
                         <segue destination="8JU-X1-XeS" kind="presentation" identifier="goToNewsFeed2" id="SeK-bu-uqM"/>
                     </connections>
                 </viewController>
