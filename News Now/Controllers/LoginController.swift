@@ -19,12 +19,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginInButton: UIButton!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     //MARK:Variables
     var userUID:String?
     var arr:[String] = []
     let obj = Categories()
     var reachability:Reachability!
+    let imagesArray = ["background","background2","background3","background4","background5","background6","background7"]
     
     //MARK:Private functions
     private func observeNotification(){
@@ -46,6 +48,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         observeNotification()
         emailTextField.keyboardAppearance = .dark
         passwordTextField.keyboardAppearance = .dark
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(handle), userInfo: nil, repeats: true)
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -59,6 +62,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
 
     
     //MARK:Random functions
+    @objc func handle(_ timer:Timer){
+        let randomNumber = Int(arc4random_uniform(UInt32(imagesArray.count)))
+        let imageName:String = imagesArray[randomNumber] as String
+        UIView.transition(with: backgroundImageView, duration: 0.7, options: [.transitionFlipFromTop], animations: {
+            self.backgroundImageView.image = UIImage(named: imageName)
+        }, completion: nil)
+        
+        
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField{
             passwordTextField.becomeFirstResponder()

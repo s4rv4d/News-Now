@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         UIApplication.shared.statusBarStyle = .lightContent
+//        Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(), userInfo: <#T##Any?#>, repeats: Bool)
         return true
     }
 
