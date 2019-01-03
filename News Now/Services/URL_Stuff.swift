@@ -10,7 +10,7 @@ import Foundation
 
 class newsURL{
     let url:String = "https://newsapi.org/v2/top-headlines"
-    let apiKEY:String = "e0dbe7dd667541e4932545dfdf26ac3f"
+    let apiKEY:String = "*********************************"
     
 }
 
