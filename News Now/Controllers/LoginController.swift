@@ -15,29 +15,29 @@ import iProgressHUD
 
 class LoginController: UIViewController, UITextFieldDelegate {
     
-    //MARK:IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginInButton: UIButton!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
-    //MARK:Variables
+    //MARK: - Variables
     var userUID:String?
     var arr:[String] = []
     let obj = Categories()
     var reachability:Reachability!
     let imagesArray = ["background","background2","background3","background4","background5","background6","background7"]
     
-    //MARK:Private functions
+    //MARK: - Private functions
     private func observeNotification(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    //MARK:Realm
+    //MARK: - Realm
     let realm = try! Realm()
 
-    //MARK:Override functions
+    //MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.reachability = Reachability.init()
@@ -61,7 +61,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
 
     
-    //MARK:Random functions
+    //MARK: - Random functions
     @objc func handle(_ timer:Timer){
         let randomNumber = Int(arc4random_uniform(UInt32(imagesArray.count)))
         let imageName:String = imagesArray[randomNumber] as String
@@ -84,7 +84,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    //MARK:Textfield notification properties
+    //MARK: - Textfield notification properties
    @objc func keyboardShow(){
     
     UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
@@ -116,7 +116,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         }
     }
 
-    //MARK:IBActions
+    //MARK: - IBActions
     @IBAction func loginIn(_ sender: UIButton) {
         loginInButton.isEnabled = false
         view.showProgress()
@@ -165,7 +165,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     @IBAction func goToRegister(_ sender: UIButton) {}
     @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue){}
     
-    //MARK:Segue functions
+    //MARK: - Segue functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destinationVC = segue.destination as? RegisterController{
